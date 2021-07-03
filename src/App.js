@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './pages/home.page';
@@ -9,13 +9,24 @@ import Projects from './pages/projects.page';
 import Header from './components/header.component';
 import SocialMediaBar from './components/socialMediaBar.component';
 import SkillsTolls from './pages/skillTools.page';
-import { Element } from 'react-scroll'
-import Footer from './components/footer.component'
+import Footer from './components/footer.component';
+import pageActions from './actions/pages.userActions';
+import {connect}  from 'react-redux';
 
 
-function App() {
+function App({alreadyLoaded}) {
 
   const [blurState, setBlurState] = useState(false);
+
+  // console.log(ReactGAInstance)
+
+  useEffect(() => {
+    if(!alreadyLoaded){
+      pageActions.pageLoaded()
+      // console.log("hola")
+    }
+    // console.log("hola2")
+  })
 
   return (
     <Router>
@@ -48,4 +59,9 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  const {currentState, alreadyLoaded} = state.darkMode
+  return {currentState: currentState, alreadyLoaded: alreadyLoaded}
+}
+
+export default connect(mapStateToProps, null)(App);

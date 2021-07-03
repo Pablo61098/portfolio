@@ -4,6 +4,7 @@ import {gsap} from 'gsap';
 import DarkModeComponent from './darkMode.component';
 import {Link} from 'react-scroll';
 import SocialMediaBar from './socialMediaBar.component.js';
+import pagesActions from '../actions/pages.userActions'
 
 
 const loadStyles = () => {
@@ -107,10 +108,10 @@ const SideMenu = ({setMenuState, menuState, currentState, showMenu}) => {
             <div className="blur" onClick={() => {setMenuState(false); showMenu()}} ref={element => blur = element}>
             </div>
             <div className="menu" ref={element => menu = element }>
-                <Link to='home' className="linkScroll home menuLink"  spy={true} smooth={true} onClick={() => {setMenuState(false); showMenu()}}><p>01.</p><span>Home</span></Link>
-                <Link to='skills' className="linkScroll skills menuLink"  spy={true} smooth={true} onClick={() => {setMenuState(false); showMenu()}}><p>02.</p><span>Skills</span></Link>
-                <Link to='about' className="linkScroll about menuLink"  spy={true} smooth={true} onClick={() => {setMenuState(false); showMenu()}}><p>03.</p><span>About</span></Link>
-                <Link to='highlights' className="linkScroll projects menuLink"  spy={true} smooth={true} onClick={() => {setMenuState(false); showMenu()}}><p>04.</p><span>Projects</span></Link>
+                <Link to='home' className="linkScroll home menuLink"  spy={true} smooth={true} onClick={() => {pagesActions.homePressed(); setMenuState(false); showMenu()}}><p>01.</p><span>Home</span></Link>
+                <Link to='skills' className="linkScroll skills menuLink"  spy={true} smooth={true} onClick={() => {pagesActions.skillsPressed(); setMenuState(false); showMenu()}}><p>02.</p><span>Skills</span></Link>
+                <Link to='about' className="linkScroll about menuLink"  spy={true} smooth={true} onClick={() => {pagesActions.aboutPressed(); setMenuState(false); showMenu()}}><p>03.</p><span>About</span></Link>
+                <Link to='highlights' className="linkScroll projects menuLink"  spy={true} smooth={true} onClick={() => {pagesActions.projectsPressed(); setMenuState(false); showMenu()}}><p>04.</p><span>Projects</span></Link>
                 <div className="menuLink darkMode">
                     <DarkModeComponent></DarkModeComponent>
                 </div>

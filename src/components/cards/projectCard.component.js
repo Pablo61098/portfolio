@@ -1,6 +1,7 @@
 import React ,  { useState, useEffect, useRef} from 'react'
 import {CardStyle, Imagen, Imagen2} from '../../styles/cardsGeneral.style'
 import {gsap, Power3} from 'gsap';
+import projectActions from '../../actions/projects.userActions';
 
 
 const ProjectsCard = ({project, delay}) => {
@@ -42,7 +43,7 @@ const ProjectsCard = ({project, delay}) => {
             <div className="template" onMouseLeave={() => changeShowState(2)} onMouseEnter={() => changeShowState(1)} ref={element => card = element}>
                 <div className="logo" onMouseEnter={animationLogos} ref={element => logo = element}>
                     <div className="repository" ref={element => repositoryDiv = element}>
-                        <a href={project.link}>
+                        <a href={project.link} target="_blank" onClick={projectActions[project.actionTitle]}>
                             <Imagen src="images/logos/github.png"  showState={ImageState} className="insideImg1"></Imagen>
                             <Imagen2 src="images/logos/folder.png"  showState={ImageState} className="insideImg2"></Imagen2>
                         </a>

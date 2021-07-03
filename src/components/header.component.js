@@ -8,6 +8,10 @@ import {ReactComponent as X} from '../images/x.svg';
 import {ReactComponent as Menu} from '../images/menu.svg'
 import {setAlreadyLoaded} from '../redux/darkmode/darkMode.actions'
 import {Link} from 'react-scroll';
+import eventActions from '../actions/events.userActions.js';
+import pageActions from '../actions/pages.userActions.js';
+// import {ReactGA} from '../config.js'
+// import {ReactGAInstance} from '../config.js'
 
 const loadStyles = () => {
     
@@ -224,10 +228,15 @@ const Header = ({currentState, alreadyLoaded, setAlreadyLoaded}) => {
     const {Navbar, Collapsed} = loadStyles();
 
     const showMenu = () => {
+        // console.log('papsapdasp');
+        if(!menuState){
+            eventActions.sideMenuPressed()    
+        }
         setMenuState(!menuState)
         animateState(true)
         document.body.style.position = '';
     }
+
 
     let headerPart = []
 
@@ -266,12 +275,12 @@ const Header = ({currentState, alreadyLoaded, setAlreadyLoaded}) => {
 
     return (
        <Navbar className={scrolled ? `active` : ``}  currentState={currentState}>
-            <Link spy={true} smooth={true} to='home'><div className="logo glow linkScroll" to='/' ref={element => headerPart.push(element)}>Pablo Solano</div></Link>
+            <Link spy={true} smooth={true} to='home'><div className="logo glow linkScroll" to='/' onClick={pageActions.homePressed} ref={element => headerPart.push(element)}>Pablo Solano</div></Link>
             <div className="navItems">
-                <Link className="linkScroll"  spy={true} smooth={true}  to='home'><div className="navbarLink glow" ref={element => headerPart.push(element)}>Home</div></Link>
-                <Link className="linkScroll" spy={true} smooth={true} to='skills'><div className="navbarLink glow" ref={element => headerPart.push(element)}>Skills</div></Link>
-                <Link className="linkScroll" spy={true} smooth={true} to='about'><div className="navbarLink glow" ref={element => headerPart.push(element)}>About</div></Link>
-                <Link className="linkScroll" spy={true} smooth={true} to='highlights'><div className="navbarLink glow" to='/services' ref={element => headerPart.push(element)}>Projects</div></Link>
+                <Link className="linkScroll"  spy={true} smooth={true}  to='home' onClick={pageActions.pageLoaded}><div className="navbarLink glow" ref={element => headerPart.push(element)}>Home</div></Link>
+                <Link className="linkScroll" spy={true} smooth={true} to='skills' onClick={pageActions.skillsPressed}><div className="navbarLink glow" ref={element => headerPart.push(element)}>Skills</div></Link>
+                <Link className="linkScroll" spy={true} smooth={true} to='about' onClick={pageActions.aboutPressed}><div className="navbarLink glow" ref={element => headerPart.push(element)}>About</div></Link>
+                <Link className="linkScroll" spy={true} smooth={true} to='highlights' onClick={pageActions.projectsPressed}><div className="navbarLink glow" to='/services' ref={element => headerPart.push(element)}>Projects</div></Link>
                 <DarkMode/>
             </div>
             <Collapsed currentState={currentState} menuState={menuState} onClick={showMenu}>

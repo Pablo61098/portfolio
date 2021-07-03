@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {Section}  from '../styles/general.styles';
 import {connect} from 'react-redux'
 import {TimelineLite, Power3} from 'gsap';
+import eventActions from '../actions/events.userActions';
 
 
 
@@ -217,10 +218,10 @@ const Hero = ({currentState}) => {
                             <span>I'm a <a id="i-am" ref={element => iAm = element}>fullstack software developer</a>trying to make something out of myself.</span>
                             <span>At the moment I'm studying a Systems Egineering major with great ambitions and ready to take the best oportunity possible.</span>
                             <div className="buttonsCont">
-                                <a href="mailto:pablosolano61098@gmail.com">
+                                <a href="mailto:pablosolano61098@gmail.com" onClick={eventActions.mailPressed}>
                                     <button>Contact me</button>
                                 </a>
-                                <a href="https://github.com/Pablo61098/CV/blob/main/Pablo%20Solano_En.pdf" target="_blank">
+                                <a href="https://github.com/Pablo61098/CV/blob/main/Pablo%20Solano_En.pdf" target="_blank" onClick={eventActions.resumePressed}>
                                     <button>Resumé</button>
                                 </a>
                             </div>
