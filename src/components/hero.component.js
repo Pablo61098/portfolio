@@ -2,8 +2,12 @@ import React, {useEffect, useRef} from 'react'
 import styled from 'styled-components'
 import {Section}  from '../styles/general.styles';
 import {connect} from 'react-redux'
-import {TweenMax, TimelineLite, Power3} from 'gsap';
+import {TimelineLite, Power3} from 'gsap';
 
+
+
+   
+  
 
 const Container = styled.div`
     /* color: #000; */
@@ -49,6 +53,15 @@ const Container = styled.div`
         font-size: clamp(1rem, 1.2vw, 1.5rem);
         display: inline-block;
         margin: 0 0 10px 20px;
+        @keyframes caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+        #i-am{
+            border-right: 8px solid;
+            animation: caret 1s steps(1) infinite;
+        }
     }
     span:nth-of-type(2){
         margin-left: 40px
@@ -56,17 +69,33 @@ const Container = styled.div`
     button{
         font-size: clamp(0.8rem, 4vw, 1.2rem);
         padding: 0.8rem 2rem;
-        /* color: #000; */
+        color: #000;
         background: #ffb347;
         background: linear-gradient(to right, #ffcc33, #ffb347);
         border: none;
-        border-radius: 4px;
+        border-radius: 10px;
         cursor: pointer;
         outline: none;
         font-weight: 500;
         margin: 10px 0; 
+        /* font-weight: 900; */
+        position:relative;
+        font-family: "RobotoRegular";
+        box-shadow: 0px 6px #efa424;
     }
+    button:hover{
+        box-shadow: 0px 4px #efa424;
+        top: 2px;
+    }
+
+
+    button:active{
+        box-shadow: none;
+        top: 6px;
+    }
+
     .buttonsCont{
+        
         margin: 20px 0;
         display: flex;
         flex-wrap: wrap;
@@ -118,7 +147,46 @@ const Hero = ({currentState}) => {
     let section = useRef(null);
     let texts = useRef(null);
     let me = useRef(null);
+    let iAm = useRef(null);
+    
 
+    useEffect(() => {
+        var dataText = [ "fullstack software developer", "systems engineer"];
+    
+        function typeWriter(text, i, fnCallback, iAm) {
+
+            if (i < (text.length)) {
+
+                iAm.innerHTML = text.substring(0, i+1) ;
+                setTimeout(function() {
+                    typeWriter(text, i + 1, fnCallback, iAm)
+                }, 100);
+            }
+
+            else if (typeof fnCallback === 'function') {
+
+                setTimeout(fnCallback, 2000);
+            }
+        }
+        function StartTextAnimation(i, iAm) {
+            if (typeof dataText[i] === 'undefined'){
+                setTimeout(function() {
+                    StartTextAnimation(0, iAm);
+                }, 2000);
+            }else{
+                if (i < dataText[i].length) {
+
+                    typeWriter(dataText[i], 0, function(){
+                    
+                        StartTextAnimation(i + 1, iAm);
+                    }, iAm);
+                }
+            }
+
+            
+        }
+        StartTextAnimation(0, iAm);
+    })
     
 
     useEffect(() => {
@@ -126,16 +194,16 @@ const Hero = ({currentState}) => {
         // timeline.duration(0.9)
         timeline.add('start')
         // timeline.add('me')
-        console.log(`texts`)
+        // console.log(`texts`)
         for(let i=0; i<texts.children.length; i++){
-            console.log(texts.children[i])
-            if(i%2 == 0){
+            // console.log(texts.children[i])
+            if(i%2 === 0){
                 timeline.from(texts.children[i], {duration: 0.9,x: -80, ease: Power3.easeInOut}, 'start')
             }else{
                 timeline.from(texts.children[i], {duration: 0.9,x: 50, ease: Power3.easeInOut}, 'start')
             }
         }
-        timeline.from(me, {duration: 0.5, scale: 0.4, ease: Power3.easeInOut}, 'start');
+        timeline.from(me, {duration: 0.9, opacity: 0.3, scale: 0.4, ease: Power3.easeInOut}, 'start');
     })
 
     return (
@@ -146,11 +214,15 @@ const Hero = ({currentState}) => {
                             <p>Hi !! My name is</p>
                             <h1>PABLO </h1>
                             <h1>SOLANO</h1>
-                            <span>I'm a fullstack software developer trying to make something out of myself.</span>
+                            <span>I'm a <a id="i-am" ref={element => iAm = element}>fullstack software developer</a>trying to make something out of myself.</span>
                             <span>At the moment I'm studying a Systems Egineering major with great ambitions and ready to take the best oportunity possible.</span>
                             <div className="buttonsCont">
-                                <button>Contact me</button>
-                                <button>Resumé</button>
+                                <a href="mailto:pablosolano61098@gmail.com">
+                                    <button>Contact me</button>
+                                </a>
+                                <a href="https://github.com/Pablo61098/CV/blob/main/Pablo%20Solano_En.pdf" target="_blank">
+                                    <button>Resumé</button>
+                                </a>
                             </div>
                         </div>
                     </div>

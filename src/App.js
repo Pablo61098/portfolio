@@ -9,7 +9,8 @@ import Projects from './pages/projects.page';
 import Header from './components/header.component';
 import SocialMediaBar from './components/socialMediaBar.component';
 import SkillsTolls from './pages/skillTools.page';
-
+import { Element } from 'react-scroll'
+import Footer from './components/footer.component'
 
 
 function App() {
@@ -24,13 +25,23 @@ function App() {
         <Route path='/about' exact component={About}/>
         <Route path='/services' exact component={Services}/>
       </Switch> */}
-      
 
-      <Home />
-      <SkillsTolls />
-      <About />
-      <Highlights />
-      <Projects/>
+      <div id="home">
+        <Home />
+      </div>
+      <div id="skills">
+        <SkillsTolls />
+      </div>
+      <div id="about">
+        <About />
+      </div>
+      <div id="highlights">
+        <Highlights  />
+      </div>
+      <div id="projects">
+        <Projects/>
+      </div>
+      <Footer/>
       <SocialMediaBar/>
       
     </Router>

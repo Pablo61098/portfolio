@@ -1,12 +1,10 @@
 import React, {useRef, useEffect} from 'react'
 import styled from 'styled-components'
-import AboutInfo from "../components/aboutInfo.component"
 import {Section} from '../styles/general.styles'
 import HighlightsCard from '../components/highlightCard.component'
 import {content} from '../content/highlightCardsContent';
 import {TitleSection} from '../styles/general.styles'
-import {gsap, TweenMax, Power3} from 'gsap';
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import {gsap, Power3} from 'gsap';
 
 // gsap.registerPlugin(ScrollTrigger);
 
@@ -25,13 +23,13 @@ const Division = styled.div`
 `;
 
 const Highlights = ({}) => {
-    console.log(content);
+    // console.log(content);
 
     let cards = [];
 
     useEffect(() => {
         cards.map((card) => {
-            gsap.from(card, {duration: 1.2, opacity: 0.0, scale: 0.1,  ease: Power3.easeInOut, scrollTrigger: {
+            gsap.from(card, {duration: 0.9, opacity: 0.0, scale: 0.1,  ease: Power3.easeInOut, scrollTrigger: {
                 trigger: card,
                 // start: "5% 20%",
                 // end: "5% 50%",
@@ -65,8 +63,8 @@ const Highlights = ({}) => {
 
                 {
                     content.map((cont, index) => {
-                        return (<div ref={element => cards.push(element)}>
-                            <HighlightsCard right={ (index+1)%2 ? false : true} key={`card-${index}`} title={cont.title} description={cont.description} image={cont.image} technologies={cont.technologies} link={cont.link} />
+                        return (<div key={`card-${index}`} ref={element => cards.push(element)}>
+                            <HighlightsCard right={ (index+1)%2 ? false : true}  title={cont.title} description={cont.description} image={cont.image} technologies={cont.technologies} link={cont.link} />
                         </div>)
                     })
                 }

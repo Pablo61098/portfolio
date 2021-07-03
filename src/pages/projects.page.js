@@ -5,8 +5,6 @@ import {Section} from '../styles/general.styles'
 // import ProjectsCard  from '../components/cards/projectCard.component'
 import {content} from '../content/projectsCardsContent'
 import {TitleSection} from '../styles/general.styles'
-import {gsap, TweenMax, Power3} from 'gsap';
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
 
 
 const Division = styled.div`

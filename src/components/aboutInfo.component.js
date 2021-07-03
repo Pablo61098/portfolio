@@ -1,6 +1,6 @@
-import React from 'react' 
+import React, {useRef, useEffect} from 'react' 
 import styled from 'styled-components'
-import {TitleSection} from '../styles/general.styles'
+import {gsap} from 'gsap';
 
 const Container = styled.div`
     /* color: #000; */
@@ -130,13 +130,28 @@ const Container = styled.div`
 `;
 
 const AboutInfo = () => {
+
+    let bio = useRef(null)
+    let gretting = useRef(null)
+
+    useEffect(() => {
+        let bio_children = bio.children
+        for(let i=0; i< bio_children.length; i++){
+            setTimeout(() => {gsap.from(bio_children[i], {duration: i/5, opacity: 0, y: '200px', scrollTrigger: {
+                trigger: bio_children[i],
+                toggleActions: "play none none none",
+            }})})
+        }
+        
+    })
+
     return(
                 
             <Container>
-                <div id="me">
+                <div  id="me">
                     <img id="me-img" src='images/boy.gif'/>
                 </div>
-                <div id="gretting">
+                <div id="gretting" ref={element => gretting = element}>
                     {/* <div className="titleSection">
                         <div className="title">
                             01. About Myself
@@ -147,7 +162,7 @@ const AboutInfo = () => {
                         </div>
                     </div> */}
                     <div className="text">
-                        <div>
+                        <div ref={element => bio = element}>
                             <span>Dear friend.</span>
                             <span>I'm writing to you, because they say you listen and understand.</span>
                             <span>My name is Pablo and I love to create things that otherwise they would have never existed if it wasn't because of me. 

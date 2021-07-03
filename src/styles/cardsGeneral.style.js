@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import {connect} from 'react-redux'
 import {useEffect, useRef} from 'react'
-import {gsap, TweenMax, Power3} from 'gsap';
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
 
 const CardStyleRedux = ({children, currentState}) => {
 
@@ -105,8 +103,10 @@ const Style = styled.div`
                     display: flex;
                     justify-content: space-around;
                     /* background-color: blue; */
+                    
                     img{
-                        width: 15%;
+                        width: 20%;
+                        /* height: 100%; */
                         margin-inline: 10px;
                         /* background-color: gray; */
                     }   
@@ -154,7 +154,7 @@ const Imagen = styled.img`
     position: relative;
     top: 0;
     left: 0;
-    visibility: ${ p => p.showState == 1   ? `visible` : `hidden`};
+    visibility: ${ p => p.showState === 1   ? `visible` : `hidden`};
 `;
     
 
@@ -163,7 +163,7 @@ const Imagen2 = styled.img`
     position: absolute;
     top: 0;
     left: 0;
-    visibility: ${ p => p.showState == 2 || p.showState == 3 ? `visible` : `hidden`};
+    visibility: ${ p => p.showState === 2 || p.showState === 3 ? `visible` : `hidden`};
     
 `;
 

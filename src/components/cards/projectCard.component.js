@@ -1,11 +1,6 @@
 import React ,  { useState, useEffect, useRef} from 'react'
-import styled from 'styled-components'
-import Projects from '../../pages/projects.page'
 import {CardStyle, Imagen, Imagen2} from '../../styles/cardsGeneral.style'
-import {gsap, TweenMax, TimelineLite, Power3} from 'gsap';
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
-
-
+import {gsap, Power3} from 'gsap';
 
 
 const ProjectsCard = ({project, delay}) => {
@@ -23,7 +18,7 @@ const ProjectsCard = ({project, delay}) => {
 
     useEffect(() => {
         // cards.map((card) => {
-            if(ImageState == 3){
+            if(ImageState === 3){
                 gsap.from(card.parentNode, {duration: 1.2, delay: delay, opacity: 0.0, scale: 0.4,  ease: Power3.easeInOut, scrollTrigger: {
                     trigger: card,
                     // start: "5% 20%",
@@ -47,12 +42,16 @@ const ProjectsCard = ({project, delay}) => {
             <div className="template" onMouseLeave={() => changeShowState(2)} onMouseEnter={() => changeShowState(1)} ref={element => card = element}>
                 <div className="logo" onMouseEnter={animationLogos} ref={element => logo = element}>
                     <div className="repository" ref={element => repositoryDiv = element}>
-                        <Imagen src="images/logos/github.png"  showState={ImageState} className="insideImg1"></Imagen>
-                        <Imagen2 src="images/logos/folder.png"  showState={ImageState} className="insideImg2"></Imagen2>
+                        <a href={project.link}>
+                            <Imagen src="images/logos/github.png"  showState={ImageState} className="insideImg1"></Imagen>
+                            <Imagen2 src="images/logos/folder.png"  showState={ImageState} className="insideImg2"></Imagen2>
+                        </a>
                     </div>
                     <div className="logos" >
                         {project.images.map((img, key) => (
+                            
                             <img src={`images/logos/${img}`} key={key} ref={element => techImages.push(element)}></img>
+                            
                         ))}
                     </div>
                 </div>
@@ -64,7 +63,7 @@ const ProjectsCard = ({project, delay}) => {
                     </div>
                 <div className="techonologies">
                     { project.technologies.map((tech, index) => (
-                        <div className="tech">{tech}</div>
+                        <div key={`projectTech-${index}`} className="tech">{tech}</div>
                     )) }
                 </div>
             </div>

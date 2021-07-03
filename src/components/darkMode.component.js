@@ -31,7 +31,7 @@ import {setDarkMode} from '../redux/darkmode/darkMode.actions'
             position: absolute;
             content: "";
             bottom: 40%;
-            /* top: 8px; */
+            left: 0%;
             background-color: gray;
             transition: 0.5s;
         }

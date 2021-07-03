@@ -1,7 +1,7 @@
 import {useEffect, useRef} from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux';
-import {gsap, TweenMax, Power3} from 'gsap';
+import {gsap, Power3} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -53,7 +53,7 @@ const TitleSectionRedux = ({left, flex, currentState, children}) => {
     let {TitleSectionEstilo} = loadStyles();
 
     useEffect(() => {
-        gsap.from(title, {duration: 1.2, x: left ? `30vw` : `-100vw`,  ease: Power3.easeInOut, scrollTrigger: {
+        gsap.from(title, {duration: 1.2, y: left ? `100px` : `-100px`, opacity:0, ease: Power3.easeInOut, scrollTrigger: {
             trigger: title,
             // start: "5% 20%",
             // end: "bottom 50%",
@@ -98,6 +98,7 @@ const loadStyles = () => {
             /* background-repeat: no-repeat; */
             /* background-size: cover; */
             min-height: 100vh;
+            /* max-height: 100vh; */
             display: flex;
             flex-direction: ${p => p.down ? `column` : ``};
             /* flex-wrap: wrap; */
@@ -157,12 +158,12 @@ const loadStyles = () => {
         font-weight: bold;
         font-size: 50px;
         /* font-weight: 900; */
-        width: ${p => !p.flex ? `100%` : ``};;
+        width: ${p => !p.flex ? `100%` : ``};
         padding: 80px 40px 70px 30px;
         grid-column: 1 / -1;
         text-align: ${p => p.left ? `start` : `end`};
         text-shadow: -2px 10px 10px #969696;
-        /* color: ${p => {console.log(`pablo ${p.currentState ? `#ffff` :`#000`}`);return(p.currentState ? `#ffff` :`#000`)}}; */
+        
         color: ${p => p.currentState ? `#ffff` :`#000`};
 
         display: flex;
@@ -187,6 +188,7 @@ const loadStyles = () => {
                 padding-right: 0;
                 text-align: center;
                 justify-content: center ;
+                font-size: min(3rem, 35px);
                 /* height: 100px; */
                 /* grid-row: 1; */
             }
@@ -199,6 +201,10 @@ const loadStyles = () => {
             animation-name: changeBack;
             animation-duration: 0.9s;
             /* animation-fill-mode: forwards; */
+        }
+        
+        @media(max-width: 769px){
+            width: ${p => !p.flex ? `80%` : ``}; 
         }
 
         transition: 0.5s;

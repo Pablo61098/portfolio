@@ -61,13 +61,13 @@ const SkillsImg = ({images}) => {
 
     return (
         <div className="skillsImages both" >
-           {images ? images.map((tech) =>  {
-                    if (tech == "Express.png" || tech == "CH.png"){
-                        return (<img className='express' src={`images/logos/${tech}`}></img>)
-                    }else if(tech == "EJS.png"){
+           {images ? images.map((tech, index) =>  {
+                    if (tech === "Express.png" || tech === "CH.png"){
+                        return (<img key={`techImage-${index}`} className='express' src={`images/logos/${tech}`}></img>)
+                    }else if(tech === "EJS.png"){
                         return(<span>&lt;%EJS</span>)
                     }else{
-                        return (<img src={`images/logos/${tech}`}></img>)
+                        return (<img key={`techImage-${index}`} src={`images/logos/${tech}`}></img>)
                     }
                 }) : ``
             }  
@@ -92,7 +92,7 @@ const Skills = ({skillSet, toolSet, skills, tools, currentState}) => {
         
         
         // skillAnimated.map((skill) => {
-        gsap.from(skillAnimated, {duration: 1.2, opacity: 0.0, scale: 0.1,  ease: Power3.easeInOut, scrollTrigger: {
+        gsap.from(skillAnimated, {duration: 0.9, opacity: 0.0, scale: 0.1,  ease: Power3.easeInOut, scrollTrigger: {
             trigger: skillAnimated,
             // start: "5% 20%",
             // end: "5% 50%",
@@ -120,8 +120,8 @@ const Skills = ({skillSet, toolSet, skills, tools, currentState}) => {
                 </div>
             </TitleSection>
                 { 
-                    set.map((skill) => (
-                        <div className="skills" ref={element => skillAnimated.push(element) }>
+                    set.map((skill, index) => (
+                        <div key={index} className="skills" ref={element => skillAnimated.push(element) }>
                             <div className="skill both">{skill.name}</div>
                             <SkillsImg images={skill.images}></SkillsImg>
                         </div>

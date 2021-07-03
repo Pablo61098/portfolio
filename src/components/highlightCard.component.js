@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import {TitleSection} from '../styles/general.styles'
 
 const Container = styled.div`
     width:80%;
@@ -259,13 +258,13 @@ const HighlightCard = ({right, title, description, image, technologies, link, ke
                         {title}
                     </div>
                     <div className="technologies">
-                        {technologies ? technologies.map((tech) =>  {
-                                if (tech == "Express.png" || tech == "CH.png"){
-                                    return (<img className='express' src={`images/logos/${tech}`}></img>)
-                                }else if(tech == "EJS.png"){
-                                    return(<span>&lt;%EJS</span>)
+                        {technologies ? technologies.map((tech, index) =>  {
+                                if (tech === "Express.png" || tech === "CH.png"){
+                                    return (<img key={`technologie-${index}`} className='express' src={`images/logos/${tech}`}></img>)
+                                }else if(tech === "EJS.png"){
+                                    return(<span key={`technologie-${index}`}>&lt;%EJS</span>)
                                 }else{
-                                    return (<img src={`images/logos/${tech}`}></img>)
+                                    return (<img key={`technologie-${index}`} src={`images/logos/${tech}`}></img>)
                                 }
                             }) : ``
                         }  
