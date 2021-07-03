@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/https//pablosolanoc.github.io/portfolio/static/css/main.267785b6.chunk.css",
+    "main.js": "/https//pablosolanoc.github.io/portfolio/static/js/main.752df4ff.chunk.js",
+    "main.js.map": "/https//pablosolanoc.github.io/portfolio/static/js/main.752df4ff.chunk.js.map",
+    "runtime-main.js": "/https//pablosolanoc.github.io/portfolio/static/js/runtime-main.fecf7fd5.js",
+    "runtime-main.js.map": "/https//pablosolanoc.github.io/portfolio/static/js/runtime-main.fecf7fd5.js.map",
+    "static/js/2.a15f0e6c.chunk.js": "/https//pablosolanoc.github.io/portfolio/static/js/2.a15f0e6c.chunk.js",
+    "static/js/2.a15f0e6c.chunk.js.map": "/https//pablosolanoc.github.io/portfolio/static/js/2.a15f0e6c.chunk.js.map",
+    "static/js/3.ae9297da.chunk.js": "/https//pablosolanoc.github.io/portfolio/static/js/3.ae9297da.chunk.js",
+    "static/js/3.ae9297da.chunk.js.map": "/https//pablosolanoc.github.io/portfolio/static/js/3.ae9297da.chunk.js.map",
+    "index.html": "/https//pablosolanoc.github.io/portfolio/index.html",
+    "static/css/main.267785b6.chunk.css.map": "/https//pablosolanoc.github.io/portfolio/static/css/main.267785b6.chunk.css.map",
+    "static/js/2.a15f0e6c.chunk.js.LICENSE.txt": "/https//pablosolanoc.github.io/portfolio/static/js/2.a15f0e6c.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/https//pablosolanoc.github.io/portfolio/static/media/Rubik-Bold.366b50ff.ttf",
+    "static/media/email.5c1d3bb0.svg": "/https//pablosolanoc.github.io/portfolio/static/media/email.5c1d3bb0.svg",
+    "static/media/github2.d205c6f8.svg": "/https//pablosolanoc.github.io/portfolio/static/media/github2.d205c6f8.svg",
+    "static/media/indeed.b588bbd3.svg": "/https//pablosolanoc.github.io/portfolio/static/media/indeed.b588bbd3.svg",
+    "static/media/instagram.6ed2cb52.svg": "/https//pablosolanoc.github.io/portfolio/static/media/instagram.6ed2cb52.svg",
+    "static/media/logo.6ce24c58.svg": "/https//pablosolanoc.github.io/portfolio/static/media/logo.6ce24c58.svg",
+    "static/media/menu.51815719.svg": "/https//pablosolanoc.github.io/portfolio/static/media/menu.51815719.svg",
+    "static/media/twitter.5ae9f4cf.svg": "/https//pablosolanoc.github.io/portfolio/static/media/twitter.5ae9f4cf.svg",
+    "static/media/x.7e2a977d.svg": "/https//pablosolanoc.github.io/portfolio/static/media/x.7e2a977d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fecf7fd5.js",
+    "static/js/2.a15f0e6c.chunk.js",
+    "static/css/main.267785b6.chunk.css",
+    "static/js/main.752df4ff.chunk.js"
+  ]
+}
