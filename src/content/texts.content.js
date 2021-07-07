@@ -43,7 +43,7 @@ const aboutMeText = {
     ],
     'es': [
         `Querido amigo.`,
-        `Tes escribo porque se que tu escuchas y entiendes.`,
+        `Te escribo porque se que tu escuchas y entiendes.`,
         `Mi nombre es Pablo Solano y amo crear cosas que no existirían si no fuera por mí.
         Comenzé en este camino en 2016, cuando escribí mi primera linea de código en el lenguaje C y quedé fascinado que yo fui el que puso esos mensajes que aparecían en una terminal.`,
         `Actualmente, tengo una urgencia de probar mis habilidades basado en mi trabajo, la misma urgencia me ha llevado a crear y mantener algunos proyectos notables.
