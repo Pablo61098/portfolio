@@ -4,8 +4,8 @@ import {gsap} from 'gsap';
 import DarkModeComponent from './darkMode.component';
 import {Link} from 'react-scroll';
 import SocialMediaBar from './socialMediaBar.component.js';
-import pagesActions from '../actions/pages.userActions'
-
+import pagesActions from '../actions/pages.userActions';
+import LanguageChanger from './language.component';
 
 const loadStyles = () => {
     const Container = styled.div`
@@ -40,8 +40,9 @@ const loadStyles = () => {
             
             
             display: grid;
-            grid-template-rows: 20% repeat(6, 10%) 30% ;
+            grid-template-rows: 20% repeat(7, 10%) 30% ;
             grid-template-columns: 20% 60% 20%;
+
 
             background-color: ${p => p.currentState ? `#2a2a2a` : `#f9f9ff`};;
             text-align: center;
@@ -62,8 +63,12 @@ const loadStyles = () => {
                 grid-row: 6;
                 border: 0;
             }
-            .socialMedia{
+            
+            .language{
                 grid-row: 7;
+            }
+            .socialMedia{
+                grid-row: 8;
             }
             .sections{
                 border: 2px solid black;
@@ -114,6 +119,10 @@ const SideMenu = ({setMenuState, menuState, currentState, showMenu}) => {
                 <Link to='highlights' className="linkScroll projects menuLink"  spy={true} smooth={true} onClick={() => {pagesActions.projectsPressed(); setMenuState(false); showMenu()}}><p>04.</p><span>Projects</span></Link>
                 <div className="menuLink darkMode">
                     <DarkModeComponent></DarkModeComponent>
+                    
+                </div>
+                <div className="language menuLink">
+                    <LanguageChanger />
                 </div>
                 <div className="socialMedia menuLink">
                     <SocialMediaBar block/>

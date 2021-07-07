@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {ReactComponent as Play} from '../images/play.svg'
 
 const Container = styled.div`
     width:80%;
@@ -78,6 +79,23 @@ const Thumbnnail = styled.div`
         }
     }
 
+    @keyframes getOverPlayButton{
+        0%{}
+        30%{
+            }
+        100%{
+            fill: #c62ff7;
+            
+        }
+    }
+    @keyframes backNormalPlayButton{
+        0%{fill: #c62ff7;}
+        30%{
+            }
+        100%{
+        }
+    }
+
     .overlay{
         position: absolute;
         top: 0px; 
@@ -88,10 +106,48 @@ const Thumbnnail = styled.div`
         opacity: 0.3;
         
         &:hover{
-            opacity: 0;
+            background-color: transparent;
+            opacity: 0.6;
         }
-        
+
+        .link{
+            position: absolute;
+            top: 0px; 
+            /* left: 0; */
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            opacity: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            &:hover{
+                opacity: 1;
+            }
+
+            .playButton{
+                width: 30%;
+                height: auto;
+
+                
+
+                animation-name: backNormalPlayButton;
+                animation-duration: 0.5s;
+                &:hover{
+                    z-index: 20;
+                    animation-name: getOverPlayButton;
+                    animation-duration: 0.7s;
+                    animation-timing-function: ease-in ease-out;
+                    animation-fill-mode: forwards;
+                } 
+            }
+        }
+
     }
+
+    
 
     animation-name: out, backNormal;
     animation-duration: 0.7s;
@@ -243,14 +299,16 @@ const HighlightCard = ({right, title, description, image, technologies, link, ke
 
     return (
         // <Container>
-            
-            
-            
             <HCardStyle>
                 
                 <Thumbnnail right={right}>
                     <img className="rounded" src={`images/highlights/${image}`}></img>
-                    <div className="overlay rounded"></div>
+                    <div className="overlay rounded">
+                        <a href={`${link}`} target="_blank" className="link">
+                            <Play className="playButton"></Play>
+                        </a>
+                    </div>
+                    
                 </Thumbnnail>
                 
                 <Info right={right}>
@@ -280,5 +338,6 @@ const HighlightCard = ({right, title, description, image, technologies, link, ke
         // </Container>
     )
 }
+
 
 export default HighlightCard;

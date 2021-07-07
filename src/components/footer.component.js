@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import {credits} from '../content/texts.content';
 
 const loadStyles = () => {
     const FooterStyle = styled.div`
@@ -51,7 +52,7 @@ const loadStyles = () => {
 
 
 
-const Footer = ({currentState}) => {
+const Footer = ({currentState, languageState}) => {
 
     let {FooterStyle} = loadStyles()
 
@@ -60,12 +61,11 @@ const Footer = ({currentState}) => {
             <div className='content'>
                 <div className='flow-h'>
                     <div className="text top">
-                        Designed and coded by <a href="https://github.com/Pablo61098" target="_blank">Pablo Solano</a>
+                        {credits[languageState][0]}<a href="https://github.com/Pablo61098" target="_blank">{credits[languageState][1]}</a>
                     </div>
                     <div className="text bottom">
                         <a className="linkPortfolio" href="https://github.com/Pablo61098/portfolio">
-                            Clone or contribute to it 
-                            <img src=""></img>
+                            {credits[languageState][2]}
                         </a>
                     </div>
                 </div>
@@ -78,7 +78,8 @@ const Footer = ({currentState}) => {
 
 const mapStateToProps = (state) => {
     const {currentState, alreadyLoaded} = state.darkMode
-    return {currentState: currentState, alreadyLoaded: alreadyLoaded}
+    const {languageState} = state.language
+    return {currentState: currentState, alreadyLoaded: alreadyLoaded, languageState: languageState}
 }
 
 export default connect(mapStateToProps, null)(Footer)

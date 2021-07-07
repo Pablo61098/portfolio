@@ -4,7 +4,7 @@ import {Section}  from '../styles/general.styles';
 import {connect} from 'react-redux'
 import {TimelineLite, Power3} from 'gsap';
 import eventActions from '../actions/events.userActions';
-
+import {greetingHero} from '../content/texts.content';
 
 
    
@@ -13,7 +13,7 @@ import eventActions from '../actions/events.userActions';
 const Container = styled.div`
     /* color: #000; */
     /* visibility: hidden; */
-    padding: 2rem 0 2rem 4rem;
+    padding: 0rem 0 2rem 4rem;
     font-family: "RobotoMonoRegular";
     /* backdrop-filter: blur(5px); */
     background-color: rgba(11, 12, 0, 0);
@@ -144,7 +144,7 @@ const Container = styled.div`
 `;
 
 
-const Hero = ({currentState}) => {
+const Hero = ({currentState, languageState}) => {
     let section = useRef(null);
     let texts = useRef(null);
     let me = useRef(null);
@@ -152,7 +152,7 @@ const Hero = ({currentState}) => {
     
 
     useEffect(() => {
-        var dataText = [ "fullstack software developer", "systems engineer"];
+        var dataText = {'en': [ "fullstack software developer", "systems engineer"], 'es': ["desarrolador de software fullstack", "ingeniero en sistemas"]}
     
         function typeWriter(text, i, fnCallback, iAm) {
 
@@ -170,14 +170,14 @@ const Hero = ({currentState}) => {
             }
         }
         function StartTextAnimation(i, iAm) {
-            if (typeof dataText[i] === 'undefined'){
+            if (typeof dataText[languageState][i] === 'undefined'){
                 setTimeout(function() {
                     StartTextAnimation(0, iAm);
                 }, 2000);
             }else{
-                if (i < dataText[i].length) {
+                if (i < dataText[languageState][i].length) {
 
-                    typeWriter(dataText[i], 0, function(){
+                    typeWriter(dataText[languageState][i], 0, function(){
                     
                         StartTextAnimation(i + 1, iAm);
                     }, iAm);
@@ -212,17 +212,17 @@ const Hero = ({currentState}) => {
             <Container>
                     <div id="gretting">
                         <div className="texts" ref={(element) => texts = element}>
-                            <p>Hi !! My name is</p>
-                            <h1>PABLO </h1>
-                            <h1>SOLANO</h1>
-                            <span>I'm a <a id="i-am" ref={element => iAm = element}>fullstack software developer</a>trying to make something out of myself.</span>
-                            <span>At the moment I'm studying a Systems Egineering major with great ambitions and ready to take the best oportunity possible.</span>
+                            <p>{greetingHero[languageState][0]}</p>
+                            <h1>{greetingHero[languageState][1]} </h1>
+                            <h1>{greetingHero[languageState][2]}</h1>
+                            <span>{greetingHero[languageState][3]} <a id="i-am" ref={element => iAm = element}>{greetingHero[languageState][4]}</a>{greetingHero[languageState][5]}</span>
+                            <span>{greetingHero[languageState][6]}</span>
                             <div className="buttonsCont">
                                 <a href="mailto:pablosolano61098@gmail.com" onClick={eventActions.mailPressed}>
-                                    <button>Contact me</button>
+                                    <button>{greetingHero[languageState][7]}</button>
                                 </a>
                                 <a href="https://github.com/Pablo61098/CV/blob/main/Pablo%20Solano_En.pdf" target="_blank" onClick={eventActions.resumePressed}>
-                                    <button>Resumé</button>
+                                    <button>{greetingHero[languageState][8]}</button>
                                 </a>
                             </div>
                         </div>
@@ -237,7 +237,8 @@ const Hero = ({currentState}) => {
 
 const mapStateToProps = (state) => {
     const {currentState} = state.darkMode
-    return {currentState}
+    const {languageState} = state.language
+    return {currentState, languageState}
 }
 
 export default connect(mapStateToProps)(Hero);

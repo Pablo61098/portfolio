@@ -5,6 +5,8 @@ import {Section} from '../styles/general.styles'
 // import ProjectsCard  from '../components/cards/projectCard.component'
 import {content} from '../content/projectsCardsContent'
 import {TitleSection} from '../styles/general.styles'
+import {sectionTitles} from '../content/texts.content';
+import {connect} from 'react-redux';
 
 
 const Division = styled.div`
@@ -23,7 +25,7 @@ const Division = styled.div`
 
 `;
 
-const Projects = () => {
+const Projects = ({languageState}) => {
 
 
     
@@ -34,12 +36,12 @@ const Projects = () => {
                     hola
                 </CardStyle> */}
             <Division>
-                <TitleSection className="titleProjects" left>Noteworthy code</TitleSection>
+                <TitleSection className="titleProjects" left>{sectionTitles[languageState][5]}</TitleSection>
                 {
-                    content.map( (project, index) => 
-                            (
-                                <ProjectsCard key={index} project={project} delay={index}/>
-                            )
+                    content[languageState].map( (project, index) => 
+                        (
+                            <ProjectsCard key={index} project={project} delay={index}/>
+                        )
                     )
                 }
                 
@@ -53,4 +55,9 @@ const Projects = () => {
     )
 }
 
-export default Projects
+const mapStateToProps = (state) => {
+    const {languageState} = state.language
+    return {languageState}
+}
+
+export default connect(mapStateToProps, null)(Projects)

@@ -10,6 +10,7 @@ import {setAlreadyLoaded} from '../redux/darkmode/darkMode.actions'
 import {Link} from 'react-scroll';
 import eventActions from '../actions/events.userActions.js';
 import pageActions from '../actions/pages.userActions.js';
+import LanguageChanger from './language.component'
 // import {ReactGA} from '../config.js'
 // import {ReactGAInstance} from '../config.js'
 
@@ -210,7 +211,7 @@ const loadStyles = () => {
 }
 
 
-const Header = ({currentState, alreadyLoaded, setAlreadyLoaded}) => {
+const Header = ({currentState, alreadyLoaded, setAlreadyLoaded, languageState}) => {
 
     const [menuState, setMenuState] = useState(false);
     const [scrolled, scrolledState] = useState(false);
@@ -277,11 +278,12 @@ const Header = ({currentState, alreadyLoaded, setAlreadyLoaded}) => {
        <Navbar className={scrolled ? `active` : ``}  currentState={currentState}>
             <Link spy={true} smooth={true} to='home'><div className="logo glow linkScroll" to='/' onClick={pageActions.homePressed} ref={element => headerPart.push(element)}>Pablo Solano</div></Link>
             <div className="navItems">
-                <Link className="linkScroll"  spy={true} smooth={true}  to='home' onClick={pageActions.pageLoaded}><div className="navbarLink glow" ref={element => headerPart.push(element)}>Home</div></Link>
-                <Link className="linkScroll" spy={true} smooth={true} to='skills' onClick={pageActions.skillsPressed}><div className="navbarLink glow" ref={element => headerPart.push(element)}>Skills</div></Link>
-                <Link className="linkScroll" spy={true} smooth={true} to='about' onClick={pageActions.aboutPressed}><div className="navbarLink glow" ref={element => headerPart.push(element)}>About</div></Link>
-                <Link className="linkScroll" spy={true} smooth={true} to='highlights' onClick={pageActions.projectsPressed}><div className="navbarLink glow" to='/services' ref={element => headerPart.push(element)}>Projects</div></Link>
+                <Link className="linkScroll"  spy={true} smooth={true}  to='home' onClick={pageActions.pageLoaded}><div className="navbarLink glow" ref={element => headerPart.push(element)}>{languageState === 'en' ?  `Home` : `Inicio`}</div></Link>
+                <Link className="linkScroll" spy={true} smooth={true} to='skills' onClick={pageActions.skillsPressed}><div className="navbarLink glow" ref={element => headerPart.push(element)}>{languageState === 'en' ?  `Skills` : `Maestría en...`}</div></Link>
+                <Link className="linkScroll" spy={true} smooth={true} to='about' onClick={pageActions.aboutPressed}><div className="navbarLink glow" ref={element => headerPart.push(element)}>{languageState === 'en' ?  `About` : `Acerca de mí`}</div></Link>
+                <Link className="linkScroll" spy={true} smooth={true} to='highlights' onClick={pageActions.projectsPressed}><div className="navbarLink glow" to='/services' ref={element => headerPart.push(element)}>{languageState === 'en' ?  `Projects` : `Proyectos`}</div></Link>
                 <DarkMode/>
+                <LanguageChanger margin/>
             </div>
             <Collapsed currentState={currentState} menuState={menuState} onClick={showMenu}>
                 <div className='menu' ref={element => menuIcon = element}>
@@ -300,9 +302,10 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = (state) => {
     const {currentState, alreadyLoaded} = state.darkMode
+    const {languageState} = state.language
     // console.log('maaaaaaaaaaaaaaaaaaaaan')
     // console.log(currentState)
-    return {currentState: currentState, alreadyLoaded: alreadyLoaded}
+    return {currentState: currentState, alreadyLoaded: alreadyLoaded, languageState: languageState}
 }
 
 

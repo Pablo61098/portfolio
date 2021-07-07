@@ -1,6 +1,8 @@
 import React, {useRef, useEffect} from 'react' 
 import styled from 'styled-components'
 import {gsap} from 'gsap';
+import {connect} from 'react-redux';
+import {aboutMeText} from '../content/texts.content';
 
 const Container = styled.div`
     /* color: #000; */
@@ -129,7 +131,7 @@ const Container = styled.div`
 
 `;
 
-const AboutInfo = () => {
+const AboutInfo = ({languageState}) => {
 
     let bio = useRef(null)
     let gretting = useRef(null)
@@ -163,13 +165,10 @@ const AboutInfo = () => {
                     </div> */}
                     <div className="text">
                         <div ref={element => bio = element}>
-                            <span>Dear friend.</span>
-                            <span>I'm writing to you, because they say you listen and understand.</span>
-                            <span>My name is Pablo and I love to create things that otherwise they would have never existed if it wasn't because of me. 
-                            I started this path back in 2016, when I wrote my first line of C code and completely was fascinated that I put those messages that appeared in a terminal.</span>
-                            <span>Today, I've got this urge to prove my skills based in my work, the same urge that has lead me to create and mantain some notewhorthy projects.
-                                My goal, at the moment, is to keep expanding my knowledge and skills either through continuous practice or proper formal work.
-                            </span>
+                            <span>{aboutMeText[languageState][0]}</span>
+                            <span>{aboutMeText[languageState][1]}</span>
+                            <span>{aboutMeText[languageState][2]}</span>
+                            <span>{aboutMeText[languageState][3]}</span>
                         </div>
                     </div>
                 </div>  
@@ -178,4 +177,9 @@ const AboutInfo = () => {
     )
 }
 
-export default AboutInfo;
+const mapStateToProps = (state) => {
+    const {languageState} = state.language
+    return {languageState}
+}
+
+export default connect(mapStateToProps, null)(AboutInfo);

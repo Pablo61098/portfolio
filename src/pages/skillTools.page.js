@@ -7,9 +7,6 @@ import {toolset} from '../content/skillset.content'
 
 
 const SkillTools = () => {
-
-    
-
     return (
         <Section down>
             <Skills skills skillSet={skillset}></Skills>

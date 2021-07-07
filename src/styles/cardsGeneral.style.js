@@ -90,6 +90,7 @@ const Style = styled.div`
                     margin-inline: 10px;
                     display: flex;
                     justify-content: end;
+                    border-radius: 50%;
                     img{
                         width: 100%;
                     }

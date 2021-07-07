@@ -5,6 +5,7 @@ import {TitleSection} from '../styles/general.styles'
 import {connect} from 'react-redux'
 import {gsap, TimelineLite, Power3} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import {sectionTitles} from '../content/texts.content';
 
 
 
@@ -77,7 +78,7 @@ const SkillsImg = ({images}) => {
 
 
 
-const Skills = ({skillSet, toolSet, skills, tools, currentState}) => {
+const Skills = ({skillSet, toolSet, skills, tools, currentState, languageState}) => {
 
     // gsap.registerPlugin(ScrollTrigger);
     let skillAnimated = [];
@@ -116,7 +117,7 @@ const Skills = ({skillSet, toolSet, skills, tools, currentState}) => {
        <Container className="todo" skills={skills} tools={tools} currentState={currentState}>
             <TitleSection className="titleSkillsTools" left={skills ? true : false}>
                 <div  ref={element => title = element}>
-                    {skills ? `Skillset` : `Tools I use`}
+                    {skills ? sectionTitles[languageState][1] : sectionTitles[languageState][2]}
                 </div>
             </TitleSection>
                 { 
@@ -133,7 +134,8 @@ const Skills = ({skillSet, toolSet, skills, tools, currentState}) => {
 
 const mapStateToProps = (state) => {
     const {currentState} = state.darkMode
-    return {currentState: currentState}
+    const {languageState} = state.language
+    return {currentState: currentState, languageState: languageState}
 }
 
 
