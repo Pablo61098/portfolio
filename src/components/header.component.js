@@ -65,6 +65,11 @@ const loadStyles = () => {
         font-size: 1.5rem;
         font-weight: bold;
         font-style: italic;
+
+        .logoPS{
+            height: auto;
+            width: 50px;
+        }
     }
 
     .navItems{
@@ -276,7 +281,11 @@ const Header = ({currentState, alreadyLoaded, setAlreadyLoaded, languageState}) 
 
     return (
        <Navbar className={scrolled ? `active` : ``}  currentState={currentState}>
-            <Link spy={true} smooth={true} to='home'><div className="logo glow linkScroll" to='/' onClick={pageActions.homePressed} ref={element => headerPart.push(element)}>Pablo Solano</div></Link>
+            <Link spy={true} smooth={true} to='home'>
+                <div className="logo glow linkScroll" to='/' onClick={pageActions.homePressed} ref={element => headerPart.push(element)}>
+                    <img className="logoPS" src="./images/logos/logoPS.png"></img>
+                </div>
+            </Link>
             <div className="navItems">
                 <Link className="linkScroll"  spy={true} smooth={true}  to='home' onClick={pageActions.pageLoaded}><div className="navbarLink glow" ref={element => headerPart.push(element)}>{languageState === 'en' ?  `Home` : `Inicio`}</div></Link>
                 <Link className="linkScroll" spy={true} smooth={true} to='skills' onClick={pageActions.skillsPressed}><div className="navbarLink glow" ref={element => headerPart.push(element)}>{languageState === 'en' ?  `Skills` : `Maestría en...`}</div></Link>
