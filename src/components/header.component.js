@@ -69,7 +69,7 @@ const loadStyles = () => {
         .logoPS{
             height: auto;
             width: 50px;
-        }
+        }   
     }
 
     .navItems{
