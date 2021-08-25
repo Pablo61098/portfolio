@@ -6,10 +6,10 @@ import Home from './pages/home.page';
 import About from './pages/about.page';
 import Highlights from './pages/highlights.page';
 import Projects from './pages/projects.page';
-import Header from './components/header.component';
-import SocialMediaBar from './components/socialMediaBar.component';
+import Header from './components/header/header.component';
+import SocialMediaBar from './components/socialMediaBar/socialMediaBar.component';
 import SkillsTolls from './pages/skillTools.page';
-import Footer from './components/footer.component';
+import Footer from './components/footer/footer.component';
 import pageActions from './actions/pages.userActions';
 import {connect}  from 'react-redux';
 

@@ -2,7 +2,7 @@ import React, {useRef, useEffect} from 'react'
 import styled from 'styled-components'
 import {gsap} from 'gsap';
 import {connect} from 'react-redux';
-import {aboutMeText} from '../content/texts.content';
+import {aboutMeText} from '../../content/texts.content';
 
 const Container = styled.div`
     /* color: #000; */

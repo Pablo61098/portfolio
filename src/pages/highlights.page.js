@@ -1,9 +1,9 @@
 import React, {useRef, useEffect} from 'react'
 import styled from 'styled-components'
-import {Section} from '../styles/general.styles'
-import HighlightsCard from '../components/highlightCard.component'
+import {Section} from '../generalStyles/general.styles'
+import HighlightsCard from '../components/cards/highlightCard.component'
 import {content} from '../content/highlightCardsContent';
-import {TitleSection} from '../styles/general.styles'
+import {TitleSection} from '../generalStyles/general.styles'
 import {gsap, Power3} from 'gsap';
 import {sectionTitles} from '../content/texts.content';
 import {connect} from 'react-redux';

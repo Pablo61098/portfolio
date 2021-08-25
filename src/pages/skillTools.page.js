@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Section} from '../styles/general.styles'
-import Skills from '../components/skills.component.js'
+import {Section} from '../generalStyles/general.styles'
+import Skills from '../components/skills/skills.component.js'
 import {skillset} from '../content/skillset.content'
 import {toolset} from '../content/skillset.content'
 

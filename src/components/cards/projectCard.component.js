@@ -1,5 +1,5 @@
 import React ,  { useState, useEffect, useRef} from 'react'
-import {CardStyle, Imagen, Imagen2} from '../../styles/cardsGeneral.style'
+import {CardStyle, Imagen, Imagen2} from '../../generalStyles/cardsGeneral.style'
 import {gsap, Power3, TimelineLite} from 'gsap';
 import projectActions from '../../actions/projects.userActions';
 

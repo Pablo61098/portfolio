@@ -1,10 +1,10 @@
 import React, {useRef, useEffect} from 'react'
 import styled from 'styled-components'
 import ProjectsCard from '../components/cards/projectCard.component'
-import {Section} from '../styles/general.styles'
+import {Section} from '../generalStyles/general.styles'
 // import ProjectsCard  from '../components/cards/projectCard.component'
 import {content} from '../content/projectsCardsContent'
-import {TitleSection} from '../styles/general.styles'
+import {TitleSection} from '../generalStyles/general.styles'
 import {sectionTitles} from '../content/texts.content';
 import {connect} from 'react-redux';
 

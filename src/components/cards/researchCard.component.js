@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Section} from '../../styles/general.styles'
+import {Section} from '../../generalStyles/general.styles'
 
 
 const CardStyle = styled.div`

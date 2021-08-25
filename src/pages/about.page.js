@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import AboutInfo from "../components/aboutInfo.component"
-import {Section}  from '../styles/general.styles';
-import {TitleSection} from '../styles/general.styles';
+import AboutInfo from "../components/aboutInfo/aboutInfo.component"
+import {Section}  from '../generalStyles/general.styles';
+import {TitleSection} from '../generalStyles/general.styles';
 import {sectionTitles} from '../content/texts.content';
 import {connect} from 'react-redux';
 

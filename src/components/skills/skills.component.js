@@ -1,11 +1,11 @@
 import React, {useEffect, useRef} from 'react'
 import styled from 'styled-components'
-import {Section} from '../styles/general.styles'
-import {TitleSection} from '../styles/general.styles'
+import {Section} from '../../generalStyles/general.styles'
+import {TitleSection} from '../../generalStyles/general.styles'
 import {connect} from 'react-redux'
 import {gsap, TimelineLite, Power3} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
-import {sectionTitles} from '../content/texts.content';
+import {sectionTitles} from '../../content/texts.content';
 
 
 

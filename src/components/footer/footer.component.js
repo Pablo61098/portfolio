@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import {credits} from '../content/texts.content';
+import {credits} from '../../content/texts.content';
 
 const loadStyles = () => {
     const FooterStyle = styled.div`

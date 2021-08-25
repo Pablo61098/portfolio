@@ -1,10 +1,10 @@
 import React, {useEffect, useRef} from 'react'
 import styled from 'styled-components'
-import {Section}  from '../styles/general.styles';
+import {Section}  from '../../generalStyles/general.styles';
 import {connect} from 'react-redux'
 import {TimelineLite, Power3} from 'gsap';
-import eventActions from '../actions/events.userActions';
-import {greetingHero} from '../content/texts.content';
+import eventActions from '../../actions/events.userActions';
+import {greetingHero} from '../../content/texts.content';
 
 
    

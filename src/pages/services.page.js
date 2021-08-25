@@ -1,6 +1,6 @@
 import React from 'react'
-import Hero from "../components/hero.component"
-import AboutInfo from '../components/aboutInfo.component'
+import Hero from "../components/hero/hero.component"
+import AboutInfo from '../components/aboutInfo/aboutInfo.component'
 
 const Services = () => {
     return (

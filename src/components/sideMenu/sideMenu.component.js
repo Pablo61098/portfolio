@@ -1,11 +1,11 @@
 import React, {useRef, useEffect} from 'react';
 import styled from 'styled-components';
 import {gsap} from 'gsap';
-import DarkModeComponent from './darkMode.component';
+import DarkModeComponent from '../darkMode/darkMode.component';
 import {Link} from 'react-scroll';
-import SocialMediaBar from './socialMediaBar.component.js';
-import pagesActions from '../actions/pages.userActions';
-import LanguageChanger from './language.component';
+import SocialMediaBar from '../socialMediaBar/socialMediaBar.component.js';
+import pagesActions from '../../actions/pages.userActions';
+import LanguageChanger from '../language/language.component';
 
 const loadStyles = () => {
     const Container = styled.div`

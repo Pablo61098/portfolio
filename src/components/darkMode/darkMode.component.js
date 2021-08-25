@@ -1,7 +1,7 @@
 import {React} from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
-import {setDarkMode} from '../redux/darkmode/darkMode.actions'
+import {setDarkMode} from '../../redux/darkmode/darkMode.actions'
 
 
 

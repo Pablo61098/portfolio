@@ -1,16 +1,17 @@
 import React,  { useState, useEffect, useRef } from 'react';
 import {connect}  from 'react-redux';
 import styled from 'styled-components';
-import SideMenu from '../components/sideMenu.component';
-import DarkMode from '../components/darkMode.component';
+import SideMenu from '../sideMenu/sideMenu.component';
+import DarkMode from '../darkMode/darkMode.component';
 import {gsap, Power3} from 'gsap';
-import {ReactComponent as X} from '../images/x.svg';
-import {ReactComponent as Menu} from '../images/menu.svg'
-import {setAlreadyLoaded} from '../redux/darkmode/darkMode.actions'
+import {ReactComponent as X} from '../../images/x.svg';
+import {ReactComponent as Menu} from '../../images/menu.svg'
+import {setAlreadyLoaded} from '../../redux/darkmode/darkMode.actions'
 import {Link} from 'react-scroll';
-import eventActions from '../actions/events.userActions.js';
-import pageActions from '../actions/pages.userActions.js';
-import LanguageChanger from './language.component'
+import eventActions from '../../actions/events.userActions.js';
+import pageActions from '../../actions/pages.userActions.js';
+import LanguageChanger from '../language/language.component';
+import Logo from '../logo/logo.component';
 // import {ReactGA} from '../config.js'
 // import {ReactGAInstance} from '../config.js'
 
@@ -59,18 +60,25 @@ const loadStyles = () => {
     border-bottom: 2px solid white;
     
 
-    .logo{
-        padding-left: 1rem;
+    /* .logo{
+        padding-left: 5px;
+        padding-right: 5px;
         text-decoration: none;
         font-size: 1.5rem;
         font-weight: bold;
         font-style: italic;
+        border-radius: 15px;
+        width: 65px;
+
+        display: grid;
+        grid-template-columns: repeat(16, 6px);
+        grid-template-rows: repeat(13, 6px);
 
         .logoPS{
             height: auto;
-            width: 50px;
+            width: 100%;
         }   
-    }
+    } */
 
     .navItems{
         display:flex;
@@ -94,13 +102,16 @@ const loadStyles = () => {
         }
         to{
             text-shadow: ${p => p.currentState ? `0px 10px 10px #c62ff7,0px -10px 10px #c62ff7,-5px 0px 10px #c62ff7,5px 0px 10px #c62ff7,-10px 0px 10px #c62ff7,10px 0px 10px #c62ff7;` : `none`} ;
-            color: ${p => {return(p.currentState ? `#ffff` : `#c62ff7`)}} ;    
+            /* background-color: #fff;
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px); */
+            color: ${p => {return(p.currentState ? `#ffff` : `#c62ff7`)}} ;
         }
     }
     @keyframes glowBack{
         from{            
             text-shadow: ${p => p.currentState ? `0px 10px 10px #c62ff7,0px -10px 10px #c62ff7,-5px 0px 10px #c62ff7,5px 0px 10px #c62ff7,-10px 0px 10px #c62ff7,10px 0px 10px #c62ff7;` : `none`} ;
-            color: ${p => {return(p.currentState ? `#ffff` : `#c62ff7`)}} ;    
+            color: ${p => {return(p.currentState ? `#ffff` : `#c62ff7`)}};  
         }
         to{
             text-shadow: ${p => p.currentState ? `none` : `none`} ;
@@ -282,9 +293,10 @@ const Header = ({currentState, alreadyLoaded, setAlreadyLoaded, languageState}) 
     return (
        <Navbar className={scrolled ? `active` : ``}  currentState={currentState}>
             <Link spy={true} smooth={true} to='home'>
-                <div className="logo glow linkScroll" to='/' onClick={pageActions.homePressed} ref={element => headerPart.push(element)}>
+                {/* <div className="logo glow linkScroll" to='/' onClick={pageActions.homePressed} ref={element => headerPart.push(element)}>
                     <img className="logoPS" src="./images/logos/logoPS.png"></img>
-                </div>
+                </div> */}
+                <Logo></Logo>
             </Link>
             <div className="navItems">
                 <Link className="linkScroll"  spy={true} smooth={true}  to='home' onClick={pageActions.pageLoaded}><div className="navbarLink glow" ref={element => headerPart.push(element)}>{languageState === 'en' ?  `Home` : `Inicio`}</div></Link>

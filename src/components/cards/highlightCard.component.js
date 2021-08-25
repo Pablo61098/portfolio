@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {ReactComponent as Play} from '../images/play.svg'
+import {ReactComponent as Play} from '../../images/play.svg'
 
 const Container = styled.div`
     width:80%;

@@ -2,7 +2,7 @@ import React, {useRef, useEffect, useState} from 'react';
 import styled from 'styled-components'
 import {gsap, Power3} from 'gsap';
 import {connect} from 'react-redux';
-import {setEnglish, setSpanish} from '../redux/language/language.actions'
+import {setEnglish, setSpanish} from '../../redux/language/language.actions'
 
 
 const LanguageStyle = styled.div`

@@ -1,6 +1,6 @@
 import React from 'react'
-import Hero from "../components/hero.component"
-import {Section} from '../styles/general.styles'
+import Hero from "../components/hero/hero.component"
+import {Section} from '../generalStyles/general.styles'
 
 const Home = () => {
     return (

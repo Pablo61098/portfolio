@@ -1,9 +1,9 @@
 import React, {useRef, useEffect} from 'react';
 import styled from 'styled-components';
-import {socialMedia} from '../content/socialMediaSites.content'
+import {socialMedia} from '../../content/socialMediaSites.content'
 import {connect} from 'react-redux'
 import {gsap, Power3} from 'gsap';
-// import {ReactComponent as Insta} from '../images/instagram.svg'
+// import {ReactComponent as Insta} from '../../images/instagram.svg'
 
 const loadStyles = () => {
     const Container = styled.div`
