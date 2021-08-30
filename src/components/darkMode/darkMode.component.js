@@ -67,7 +67,7 @@ import {setDarkMode} from '../../redux/darkmode/darkMode.actions'
 
 const DarkMode = ({setDarkMode, currentState}) => {
 
-    // const {Toogle, Label} = loadStyles()
+    
 
     return(
         <Toogle>

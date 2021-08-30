@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+
 import {useState, useEffect} from 'react';
 import './App.css';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import Home from './pages/home.page';
 import About from './pages/about.page';
 import Highlights from './pages/highlights.page';

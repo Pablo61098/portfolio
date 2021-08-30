@@ -151,7 +151,7 @@ const AboutInfo = ({languageState}) => {
                 
             <Container>
                 <div  id="me">
-                    <img id="me-img" src='images/boy.gif'/>
+                    <img id="me-img" src='images/boy.gif' alt="Me and my dog"/>
                 </div>
                 <div id="gretting" ref={element => gretting = element}>
                     {/* <div className="titleSection">

@@ -1,5 +1,4 @@
 import React, {useRef, useEffect} from 'react';
-import styled from 'styled-components';
 import {gsap} from 'gsap';
 import DarkModeComponent from '../darkMode/darkMode.component';
 import {Link} from 'react-scroll';
@@ -7,94 +6,13 @@ import SocialMediaBar from '../socialMediaBar/socialMediaBar.component.js';
 import pagesActions from '../../actions/pages.userActions';
 import LanguageChanger from '../language/language.component';
 
-const loadStyles = () => {
-    const Container = styled.div`
-        
-        width: 100vw;
-        position: fixed;
-        right: 0;
-        top: 0;
-        height: 100vh;
-        z-index: 15;
-
-        
-        /* background-color: cyan; */
-        
-        display: ${p => !p.menuState ? `none` : `grid`};
-        
-        grid-template-columns: repeat(6, 15%);
-
-        .blur{
-            opacity:0;
-            grid-column: 1 / span 3;
-            grid-row: 1;
-            /* background-color: red; */
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-        }
-
-        .menu{
-            opacity:0;
-            grid-column: 4 / span last-line;
-            grid-row: 1;
-            
-            
-            display: grid;
-            grid-template-rows: 20% repeat(7, 10%) 30% ;
-            grid-template-columns: 20% 60% 20%;
-
-
-            background-color: ${p => p.currentState ? `#2a2a2a` : `#f9f9ff`};;
-            text-align: center;
-
-            .home{
-                grid-row: 2;
-            }
-            .skills{
-                grid-row: 3;
-            }
-            .about{
-                grid-row: 4;
-            }
-            .projects{
-                grid-row: 5;
-            }
-            .darkMode{
-                grid-row: 6;
-                border: 0;
-            }
-            
-            .language{
-                grid-row: 7;
-            }
-            .socialMedia{
-                grid-row: 8;
-            }
-            .sections{
-                border: 2px solid black;
-            }
-            .menuLink{
-                grid-column: 2;
-                margin-bottom: 10px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-            p{
-                margin: 0 5px;
-            }
-        }
-    `;
-
-    return {Container}
-}
-
-
+import {ContainerBrightNormal, ContainerBrightCollapsed, ContainerDarkNormal, ContainerDarkCollapsed} from './sideMenu.styles';
 
 const SideMenu = ({setMenuState, menuState, currentState, showMenu}) => {
     
-    let {Container} = loadStyles() 
+
+    const Container = currentState ? ( !menuState ? ContainerDarkNormal : ContainerDarkCollapsed) : ( !menuState ? ContainerBrightNormal : ContainerBrightCollapsed);
+    // const displayConfig = !menuState ? `displayNormal` : `displayCollapsed`;
 
     let blur = useRef(null)
     let menu = useRef(null)
@@ -109,7 +27,7 @@ const SideMenu = ({setMenuState, menuState, currentState, showMenu}) => {
     })
 
     return (
-        <Container menuState={menuState} currentState={currentState}>
+        <Container  menuState={menuState} currentState={currentState}>
             <div className="blur" onClick={() => {setMenuState(false); showMenu()}} ref={element => blur = element}>
             </div>
             <div className="menu" ref={element => menu = element }>

@@ -302,9 +302,9 @@ const HighlightCard = ({right, title, description, image, technologies, link, ke
             <HCardStyle>
                 
                 <Thumbnnail right={right}>
-                    <img className="rounded" src={`images/highlights/${image}`}></img>
+                    <img className="rounded" src={`images/highlights/${image}`} alt="highlight"></img>
                     <div className="overlay rounded">
-                        <a href={`${link}`} target="_blank" className="link">
+                        <a href={`${link}`} target="_blank" rel="noopener noreferrer" className="link">
                             <Play className="playButton"></Play>
                         </a>
                     </div>
@@ -318,11 +318,11 @@ const HighlightCard = ({right, title, description, image, technologies, link, ke
                     <div className="technologies">
                         {technologies ? technologies.map((tech, index) =>  {
                                 if (tech === "Express.png" || tech === "CH.png"){
-                                    return (<img key={`technologie-${index}`} className='express' src={`images/logos/${tech}`}></img>)
+                                    return (<img key={`technologie-${index}`} className='express' src={`images/logos/${tech}`} alt="Tech I used"></img>)
                                 }else if(tech === "EJS.png"){
-                                    return(<span key={`technologie-${index}`}>&lt;%EJS</span>)
+                                    return(<span key={`technologie-${index}`} alt="Tech I used">&lt;%EJS</span>)
                                 }else{
-                                    return (<img key={`technologie-${index}`} src={`images/logos/${tech}`}></img>)
+                                    return (<img key={`technologie-${index}`} src={`images/logos/${tech}`} alt="Tech I used"></img>)
                                 }
                             }) : ``
                         }  
@@ -331,7 +331,7 @@ const HighlightCard = ({right, title, description, image, technologies, link, ke
                         {description}
                     </div>
                     {/* <div className="links">
-                        <a href={`${link}`} target="_blank">View live</a>
+                        <a href={`${link}`} target="_blank" rel="noopener noreferrer">View live</a>
                     </div> */}
                 </Info>
             </HCardStyle>

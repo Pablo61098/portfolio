@@ -221,14 +221,14 @@ const Hero = ({currentState, languageState}) => {
                                 <a href="mailto:pablosolano61098@gmail.com" onClick={eventActions.mailPressed}>
                                     <button>{greetingHero[languageState][7]}</button>
                                 </a>
-                                <a href="https://github.com/Pablo61098/CV/blob/main/Pablo%20Solano_En.pdf" target="_blank" onClick={eventActions.resumePressed}>
+                                <a href="https://github.com/Pablo61098/CV/blob/main/Pablo%20Solano_En.pdf" target="_blank" rel="noopener noreferrer" onClick={eventActions.resumePressed}>
                                     <button>{greetingHero[languageState][8]}</button>
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div id="me" ref={element => me = element}>
-                        <img id="me-img" src={`images/${currentState ?  `me2.gif` : `me.gif`}`}/>
+                        <img id="me-img" src={`images/${currentState ?  `me2.gif` : `me.gif`}`} alt="Me but pixeled"/>
                     </div>
             </Container>
        </Section>

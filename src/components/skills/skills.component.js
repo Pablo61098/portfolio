@@ -64,11 +64,11 @@ const SkillsImg = ({images}) => {
         <div className="skillsImages both" >
            {images ? images.map((tech, index) =>  {
                     if (tech === "Express.png" || tech === "CH.png"){
-                        return (<img key={`techImage-${index}`} className='express' src={`images/logos/${tech}`}></img>)
+                        return (<img key={`techImage-${index}`} className='express' src={`images/logos/${tech}`} alt="Skill"></img>)
                     }else if(tech === "EJS.png"){
                         return(<span>&lt;%EJS</span>)
                     }else{
-                        return (<img key={`techImage-${index}`} src={`images/logos/${tech}`}></img>)
+                        return (<img key={`techImage-${index}`} src={`images/logos/${tech}`} alt="Skill"></img>)
                     }
                 }) : ``
             }  

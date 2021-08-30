@@ -30,7 +30,7 @@ const Highlights = ({languageState}) => {
     let cards = [];
 
     useEffect(() => {
-        cards.map((card) => {
+        cards.forEach((card) => {
             gsap.from(card, {duration: 0.9, opacity: 0.0, scale: 0.1,  ease: Power3.easeInOut, scrollTrigger: {
                 trigger: card,
                 // start: "5% 20%",

@@ -57,8 +57,8 @@ const ProjectsCard = ({project, delay}) => {
         <CardStyle>
             <div className="template" onMouseLeave={() => changeShowState(2)} onMouseEnter={() => changeShowState(1)} ref={element => card = element}>
                 <div className="logo" onMouseEnter={animationLogos} ref={element => logo = element}>
-                    <div className="repository" ref={element => repositoryDiv = element} ref={element => borderForAnimation = element}>
-                        <a href={project.link} target="_blank" onClick={projectActions[project.actionTitle]} >
+                    <div className="repository"  ref={element => borderForAnimation = element}>
+                        <a href={project.link} target="_blank" rel="noopener noreferrer" onClick={projectActions[project.actionTitle]} >
                             <Imagen src="images/logos/github.png"  showState={ImageState} className="insideImg1"></Imagen>
                             <Imagen2 src="images/logos/folder.png"  showState={ImageState} className="insideImg2"></Imagen2>
                         </a>
@@ -66,7 +66,7 @@ const ProjectsCard = ({project, delay}) => {
                     <div className="logos" >
                         {project.images.map((img, key) => (
                             
-                            <img src={`images/logos/${img}`} key={key} ref={element => techImages.push(element)}></img>
+                            <img src={`images/logos/${img}`} key={key} ref={element => techImages.push(element)} alt="Tech I used for project"></img>
                             
                         ))}
                     </div>

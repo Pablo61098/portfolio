@@ -13,7 +13,7 @@ const CardStyleRedux = ({children, currentState}) => {
 }
 
 const Style = styled.div`
-    color: ${p => p.currentState ? `#000` : `#000`};
+        color: ${p => p.currentState ? `#000` : `#000`};
         background-color: #f9f9ff;
         border-radius: 20px;
         justify-self: center;

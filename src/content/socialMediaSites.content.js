@@ -7,11 +7,11 @@ import {ReactComponent as LinkedIn} from '../images/linkedin.svg'
 import eventActions from '../actions/events.userActions'
 
 const socialMedia = [
-    <a href="https://github.com/pablosolanoc" target="_blank" className='link'  onClick={eventActions.githubPressed}><Github className='imagen'/></a>,
-    <a href="https://www.instagram.com/pabloantonio98/" target="_blank" className='link' onClick={eventActions.instagramPressed}><Instagram className='imagen' /></a>,
-    <a href="https://www.linkedin.com/in/pablo-solano-2bb968216/" target="_blank" className='link' onClick={eventActions.instagramPressed}><LinkedIn className='imagen' /></a>,
-    <a href="https://my.indeed.com/p/pablos-p48pjbs" target="_blank" className='link'  onClick={eventActions.indeedPressed}><Indeed className='imagen'/></a>,
-    <a href="https://twitter.com/AntonioPablo98" target="_blank" className='link' onClick={eventActions.twitterPressed}><Twitter className='imagen'/></a>,
+    <a href="https://github.com/pablosolanoc" target="_blank" rel="noopener noreferrer" className='link'  onClick={eventActions.githubPressed}><Github className='imagen'/></a>,
+    <a href="https://www.instagram.com/pabloantonio98/" target="_blank" rel="noopener noreferrer" className='link' onClick={eventActions.instagramPressed}><Instagram className='imagen' /></a>,
+    <a href="https://www.linkedin.com/in/pablo-solano-2bb968216/" target="_blank" rel="noopener noreferrer" className='link' onClick={eventActions.instagramPressed}><LinkedIn className='imagen' /></a>,
+    <a href="https://my.indeed.com/p/pablos-p48pjbs" target="_blank" rel="noopener noreferrer" className='link'  onClick={eventActions.indeedPressed}><Indeed className='imagen'/></a>,
+    <a href="https://twitter.com/AntonioPablo98" target="_blank" rel="noopener noreferrer" className='link' onClick={eventActions.twitterPressed}><Twitter className='imagen'/></a>,
     <a href="mailto:pablosolano61098@gmail.com" className='link' onClick={eventActions.mailPressed}><Mail className='imagen'/></a>
 ]
 

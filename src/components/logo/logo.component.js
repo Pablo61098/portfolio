@@ -67,12 +67,12 @@ const Logo = ({}) => {
 
     useEffect(() => {
         
-        squaresArray.map((square, index) => {
+        squaresArray.forEach((square, index) => {
             let tl = new TimelineMax();
             let tl2 = new TimelineMax();
-            console.log(square);
+            // console.log(square);
             let value2 = Math.random() * 2
-            tl.to(square, 1.9, {x: (index%2 == 0 ? `+=${value2}` : `-=${value2}`), y: (index%2 == 0 ? `+=${value2}` : `-=${value2}`), z: (index%2 == 0 ? `+=${value2}` : `-=${value2}`), repeat: -1, yoyo: true});
+            tl.to(square, 1.9, {x: (index%2 === 0 ? `+=${value2}` : `-=${value2}`), y: (index%2 === 0 ? `+=${value2}` : `-=${value2}`), z: (index%2 === 0 ? `+=${value2}` : `-=${value2}`), repeat: -1, yoyo: true});
             // tl.to(square, 0.7, {x: (index%2 == 0 ? `-=${value2}` : `+=${value2}`), y: (index%2 == 0 ? `-=${value2}` : `+=${value2}`), z: (index%2 == 0 ? `+=${value2}` : `-=${value2}`), repeat: -1, yoyo: true  });
             // tl.to(square, 0.9, {y: (index%2 == 0 ? `+=${value2}` : `-=${value2}`), yoyo:true, repeat:-1, });
             // tl.to(square, 0.9, {y: (index%2 == 0 ? `-=${value2}` : `+=${value2}`), yoyo:true, repeat:-1, });
@@ -107,8 +107,8 @@ const Logo = ({}) => {
                 let squares = [];
                 for(let j=0; j<16; j++){
                     squares.push(!doesntApply[index].includes(j) ? 
-                        <div className="squaredFilled" ref={element => squaresArray.push(element)} > </div> : 
-                        <div className="squaredEmpty" ref={element => squaresArray.push(element)}> </div>);
+                        <div key={j} className="squaredFilled" ref={element => squaresArray.push(element)} > </div> : 
+                        <div key={-j} className="squaredEmpty" ref={element => squaresArray.push(element)}> </div>);
                 }
                 return squares;
             })
