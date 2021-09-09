@@ -23,7 +23,7 @@ const greetingHero = {
         `Hola !! Mi nombre es`,
         `PABLO `,
         `SOLANO`,
-        `Soy un`,
+        `Soy un `,
         `desarrollador web fullstack`,
         `tratando de hacer algo de mí mismo.`,
         `Por el momento estoy estudiando Ingeniería en Sistemas, tengo grandes ambiciones y estoy dispuesto a trabajar duro para aprovechar todas mis oportunidades.`,

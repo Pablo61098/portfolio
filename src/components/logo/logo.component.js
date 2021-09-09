@@ -27,6 +27,10 @@ const Logo = ({}) => {
     
     let [shouldStop, setShouldStop] = useState(false);
 
+    
+    const [timeLines, setTimeLines] = useState([]);
+    const [timeLinesGrow, setTimeLinesGrow] = useState([]);
+
     // let [tl, setTl] = useState(new TimelineMax());
     // function checkShouldStop() {
     //     if(shouldStop) {
@@ -35,8 +39,8 @@ const Logo = ({}) => {
     //         tl.resume();
     //     }
     // }
-    let timeLines = [];
-    let timeLinesGrow = [];
+    // let timeLines = [];
+    // let timeLinesGrow = [];
     
 
     useEffect(() => {
@@ -55,9 +59,8 @@ const Logo = ({}) => {
             tl2.pause();
             timeLines.push(tl);
             timeLinesGrow.push(tl2);
-                    
         })
-    })
+    }, [])
 
     const stopAndGrow = () => {
         

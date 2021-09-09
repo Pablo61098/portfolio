@@ -8,18 +8,22 @@ import {greetingHero} from '../../content/texts.content';
 
 import Container from './hero.styles';
 
-const Hero = ({currentState, languageState}) => {
+const Hero = ({currentState, languageState, hasChanged}) => {
     let section = useRef(null);
     let texts = useRef(null);
     let me = useRef(null);
-    let iAm = useRef(null);
+    let iAmSpanish = useRef(null);
+    let iAmEnglish = useRef(null);
     
 
     useEffect(() => {
         var dataText = {'en': [ "fullstack software developer", "systems engineer"], 'es': ["desarrolador de software fullstack", "ingeniero en sistemas"]}
     
         function typeWriter(text, i, fnCallback, iAm) {
-
+            // console.log(text);
+            // if(hasChanged){
+            //     return 0;
+            // }
             if (i < (text.length)) {
 
                 iAm.innerHTML = text.substring(0, i+1) ;
@@ -33,25 +37,28 @@ const Hero = ({currentState, languageState}) => {
                 setTimeout(fnCallback, 2000);
             }
         }
-        function StartTextAnimation(i, iAm) {
-            if (typeof dataText[languageState][i] === 'undefined'){
+        function StartTextAnimation(i, iAm, language) {
+            if (typeof dataText[language][i] === 'undefined'){
                 setTimeout(function() {
-                    StartTextAnimation(0, iAm);
+                    StartTextAnimation(0, iAm, language);
                 }, 2000);
             }else{
-                if (i < dataText[languageState][i].length) {
+                console.log(language);
+                if (i < dataText[language][i].length) {
 
-                    typeWriter(dataText[languageState][i], 0, function(){
+                    typeWriter(dataText[language][i], 0, function(){
                     
-                        StartTextAnimation(i + 1, iAm);
+                        StartTextAnimation(i + 1, iAm, language);
                     }, iAm);
                 }
             }
-
-            
         }
-        StartTextAnimation(0, iAm);
-    })
+        // All animations of all possible languages run at the same time
+        // We control what which is shown based on the languageState -> see id="i-am" elements
+        StartTextAnimation(0, iAmSpanish, 'es');
+        StartTextAnimation(0, iAmEnglish, 'en');
+        
+    }, []) // This is only executed when the component mounts, it does not need to execute everytime a state changes
     
 
     useEffect(() => {
@@ -69,6 +76,8 @@ const Hero = ({currentState, languageState}) => {
             }
         }
         timeline.from(me, {duration: 0.9, opacity: 0.3, scale: 0.4, ease: Power3.easeInOut}, 'start');
+
+
     })
 
     return (
@@ -79,7 +88,11 @@ const Hero = ({currentState, languageState}) => {
                             <p>{greetingHero[languageState][0]}</p>
                             <h1>{greetingHero[languageState][1]} </h1>
                             <h1>{greetingHero[languageState][2]}</h1>
-                            <span>{greetingHero[languageState][3]} <a id="i-am" ref={element => iAm = element}>{greetingHero[languageState][4]}</a>{greetingHero[languageState][5]}</span>
+                            <span>{greetingHero[languageState][3]} 
+                                <a id="i-am" className={`${languageState === 'en' ? 'doNotShow' : '' }`} ref={element => iAmSpanish = element}>{greetingHero[languageState][4]}</a> 
+                                <a id="i-am" className={`${languageState === 'es' ? 'doNotShow' : '' }`} ref={element => iAmEnglish = element}>{greetingHero[languageState][4]}</a>
+                                {greetingHero[languageState][5]}
+                            </span>
                             <span>{greetingHero[languageState][6]}</span>
                             <div className="buttonsCont">
                                 <a href="mailto:pablosolano61098@gmail.com" onClick={eventActions.mailPressed}>
@@ -101,8 +114,8 @@ const Hero = ({currentState, languageState}) => {
 
 const mapStateToProps = (state) => {
     const {currentState} = state.darkMode
-    const {languageState} = state.language
-    return {currentState, languageState}
+    const {languageState, hasChanged} = state.language
+    return {currentState, languageState, hasChanged}
 }
 
 export default connect(mapStateToProps)(Hero);

@@ -54,6 +54,9 @@ const Container = styled.div`
             border-right: 8px solid;
             animation: caret 1s steps(1) infinite;
         }
+        .doNotShow{
+            display: none;
+        }
     }
     span:nth-of-type(2){
         margin-left: 40px
