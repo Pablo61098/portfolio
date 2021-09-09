@@ -1,14 +1,12 @@
-import React from 'react';
 import styled from 'styled-components';
-import {ReactComponent as Play} from '../../images/play.svg'
 
 const Container = styled.div`
     width:80%;
-`;
+    `;
 
 const HCardStyle = styled.div`
     width: 100%;
-    
+
     /* height: 350px; */
     /* background-color: red; */
 
@@ -17,7 +15,7 @@ const HCardStyle = styled.div`
     /* grid-gap: 0.3%; */
     margin-bottom: 100px;
     position: relative;
-    
+
     .rounded{
         @media (max-width: 768px) {
             border-radius: 30px;
@@ -25,7 +23,7 @@ const HCardStyle = styled.div`
     }
     /* grid-template-columns: 1fr; */
 
-`;
+    `;
 
 const Thumbnnail = styled.div`
     grid-column: ${p => !p.right ? `1 / span 9` : `4 / span sad`};
@@ -34,12 +32,12 @@ const Thumbnnail = styled.div`
     z-index: 5;
     /* background-color: rgba(60, 202, 142, 1);
     opacity: 0.4; */
-    
+
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     /* display: flex;
     flex-direction: row; */
     box-shadow: -2px 10px 30px #969696;
@@ -147,12 +145,12 @@ const Thumbnnail = styled.div`
 
     }
 
-    
+
 
     animation-name: out, backNormal;
     animation-duration: 0.7s;
-    
-    
+
+
 
     &:hover{
         z-index: 20;
@@ -166,10 +164,10 @@ const Thumbnnail = styled.div`
         animation-timing-function: ease-in ease-out; */
     }
 
-    
-     
 
-`;
+    
+
+    `;
 
 const Info = styled.div`
     grid-column: ${p => !p.right ? `5 / span last-line` : `1 / span 8`};
@@ -182,7 +180,7 @@ const Info = styled.div`
     align-self: center;
     text-align: ${p => !p.right ? `right` : `left`};
     font-size: 15px;
-    
+
     @keyframes getOverInfo{
         0%{}
         30%{
@@ -199,7 +197,7 @@ const Info = styled.div`
 
     animation-name: out, backNormalInfo;
     animation-duration: 1.7s;
-    
+
     &:hover{
         z-index: 20;
         animation-name: in, getOverInfo;
@@ -207,13 +205,13 @@ const Info = styled.div`
         animation-timing-function: ease-in ease-out;
         animation-fill-mode: forwards;
     }
-    
+
     /* position: absolute; */
 
     /* display: flex;
     flex-direction: column; */
-    
-    
+
+
     /* font-size: min( 1vw); */
 
     @media (max-width: 768px) {
@@ -289,55 +287,4 @@ const Info = styled.div`
     }
 `;
 
-
-
-
-const HighlightCard = ({right, title, description, image, technologies, link, key}) => {
-
-
-    
-
-    return (
-        // <Container>
-            <HCardStyle>
-                
-                <Thumbnnail right={right}>
-                    <img className="rounded" src={`images/highlights/${image}`} alt="highlight"></img>
-                    <div className="overlay rounded">
-                        <a href={`${link}`} target="_blank" rel="noopener noreferrer" className="link">
-                            <Play className="playButton"></Play>
-                        </a>
-                    </div>
-                    
-                </Thumbnnail>
-                
-                <Info right={right}>
-                    <div className="titleProject">
-                        {title}
-                    </div>
-                    <div className="technologies">
-                        {technologies ? technologies.map((tech, index) =>  {
-                                if (tech === "Express.png" || tech === "CH.png"){
-                                    return (<img key={`technologie-${index}`} className='express' src={`images/logos/${tech}`} alt="Tech I used"></img>)
-                                }else if(tech === "EJS.png"){
-                                    return(<span key={`technologie-${index}`} alt="Tech I used">&lt;%EJS</span>)
-                                }else{
-                                    return (<img key={`technologie-${index}`} src={`images/logos/${tech}`} alt="Tech I used"></img>)
-                                }
-                            }) : ``
-                        }  
-                    </div>
-                    <div className="description">
-                        {description}
-                    </div>
-                    {/* <div className="links">
-                        <a href={`${link}`} target="_blank" rel="noopener noreferrer">View live</a>
-                    </div> */}
-                </Info>
-            </HCardStyle>
-        // </Container>
-    )
-}
-
-
-export default HighlightCard;
+export {Container, Thumbnnail, Info, HCardStyle};

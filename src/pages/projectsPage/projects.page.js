@@ -1,29 +1,13 @@
-import React, {useRef, useEffect} from 'react'
-import styled from 'styled-components'
-import ProjectsCard from '../components/cards/projectCard.component'
-import {Section} from '../generalStyles/general.styles'
+import React, {useRef, useEffect} from 'react';
+import ProjectsCard from '../../components/cards/projectCard/projectCard.component'
+import {Section} from '../../generalStyles/general.styles'
 // import ProjectsCard  from '../components/cards/projectCard.component'
-import {content} from '../content/projectsCardsContent'
-import {TitleSection} from '../generalStyles/general.styles'
-import {sectionTitles} from '../content/texts.content';
+import {content} from '../../content/projectsCardsContent'
+import {TitleSection} from '../../generalStyles/general.styles'
+import {sectionTitles} from '../../content/texts.content';
 import {connect} from 'react-redux';
 
-
-const Division = styled.div`
-    
-    width: 80%;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    /* grid-auto-rows: minmax(min-content, max-content); */
-    
-    /* grid-row-gap: 5px; */
-    /* grid-column-gap: 5px; */
-    /* justify-content: center; */
-   
-    /* background-color: #f9f9ff; */
-    /* border: 3px solid blue; */
-
-`;
+import Division from './projectsPage.styles';
 
 const Projects = ({languageState}) => {
 

@@ -1,7 +1,7 @@
 import React ,  { useState, useEffect, useRef} from 'react'
-import {CardStyle, Imagen, Imagen2} from '../../generalStyles/cardsGeneral.style'
+import {CardStyle, Imagen, Imagen2} from '../../../generalStyles/cardsGeneral.styles'
 import {gsap, Power3, TimelineLite} from 'gsap';
-import projectActions from '../../actions/projects.userActions';
+import projectActions from '../../../actions/projects.userActions';
 
 
 const ProjectsCard = ({project, delay}) => {
@@ -39,7 +39,7 @@ const ProjectsCard = ({project, delay}) => {
             }else if(ImageState === 1){
                 borderForAnimation.animation.play()
             }else if(ImageState === 2){
-                console.log("hey")
+                // console.log("hey")
                 borderForAnimation.animation.kill()
                 borderForAnimation.animation.reverse()
             }

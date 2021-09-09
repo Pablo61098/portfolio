@@ -13,7 +13,8 @@ const content = {
             location for both kinds of link can be specified, as it is the content that is shown where and informationlink is pressed.
             `,
             link: 'https://facultadartescuenca.com/museovirtual',
-            image: 'museo2.png'
+            image: 'museo2.png',
+            actionTitle: 'virtualMuseumPressed'
         },
 
         {
@@ -27,7 +28,8 @@ const content = {
             from the teacher, know when the next class is and upload their finished homework for future
                 revision and feedback.`,
             link: 'https://www.oratoriomariaauxiliadoracuenca.com/',
-            image: 'OMA2.png'
+            image: 'OMA2.png',
+            actionTitle: 'OMACPressed'
         },
 
         {
@@ -36,7 +38,8 @@ const content = {
             technologies: ['EJS.png', 'CH.png', 'NodeJS.png', 'Express.png', 'ES6.png'],
             description: `A calculator for the Cyclic Redundancy Check 16 (CRC16). Calculate the binary sequence of an outgoing message by the means of CRC16. Detect if a transmitted message has an error.`,
             link: 'https://crc16.herokuapp.com/calculate',
-            image: 'crc162.png'
+            image: 'crc162.png',
+            actionTitle: 'CRC16Pressed'
         },
 
         {
@@ -45,7 +48,8 @@ const content = {
             technologies: ['EJS.png', 'CH.png', 'NodeJS.png', 'Express.png', 'ES6.png'],
             description: `I developed this website according to the design and functionality requested by  Plenitud - Gerontological Foundation of Cuenca, Ecuador.`,
             link: 'https://facultadartescuenca.com/museovirtual',
-            image: 'fund2.png'
+            image: 'fund2.png',
+            actionTitle: 'FundacionPressed'
         }
     
     ],
@@ -61,7 +65,8 @@ const content = {
             cambiar la localización de cada tipo de link, así como el contenido que es mostrado cuando un botón de información es presionado.
             `,
             link: 'https://facultadartescuenca.com/museovirtual',
-            image: 'museo2.png'
+            image: 'museo2.png',
+            actionTitle: 'virtualMuseumPressed'
         },
 
         {
@@ -75,7 +80,8 @@ const content = {
             contenido relativo a estas. Estudiantes pueden ingresar para recibir el material subido por el docente,
             conocer cuando es la siguiente clase y subir la tarea realizada para su futura revisión y retroalimentación.`,
             link: 'https://www.oratoriomariaauxiliadoracuenca.com/',
-            image: 'OMA2.png'
+            image: 'OMA2.png',
+            actionTitle: 'OMACPressed'
         },
 
         {
@@ -84,7 +90,8 @@ const content = {
             technologies: ['EJS.png', 'CH.png', 'NodeJS.png', 'Express.png', 'ES6.png'],
             description: `Una calculadora para el Cyclic Redundancy Check 16 (CRC16). Esta aplicación calcula la secuencia binaria de un mensaje saliente por medio del CRC16. También detecta si un mensaje transmitido tiene un error o no.`,
             link: 'https://crc16.herokuapp.com/calculate',
-            image: 'crc162.png'
+            image: 'crc162.png',
+            actionTitle: 'CRC16Pressed'
         },
 
         {
@@ -93,7 +100,8 @@ const content = {
             technologies: ['EJS.png', 'CH.png', 'NodeJS.png', 'Express.png', 'ES6.png'],
             description: `Desarrolle siguiente sitio web basado en el diseño y funcionabilidad solicitada por la Fundación Gerontologica Plenitud de Cuenca, Ecuador.`,
             link: 'http://fundacionplenitud.com',
-            image: 'fund2.png'
+            image: 'fund2.png',
+            actionTitle: 'FundacionPressed'
         }
     ]
 

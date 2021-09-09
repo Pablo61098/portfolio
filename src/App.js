@@ -2,13 +2,13 @@
 import {useState, useEffect} from 'react';
 import './App.css';
 import {BrowserRouter as Router} from 'react-router-dom';
-import Home from './pages/home.page';
-import About from './pages/about.page';
-import Highlights from './pages/highlights.page';
-import Projects from './pages/projects.page';
+import Home from './pages/homePage/home.page';
+import About from './pages/aboutPage/about.page';
+import Highlights from './pages/highlightsPage/highlights.page';
+import Projects from './pages/projectsPage/projects.page';
 import Header from './components/header/header.component';
 import SocialMediaBar from './components/socialMediaBar/socialMediaBar.component';
-import SkillsTolls from './pages/skillTools.page';
+import SkillsTolls from './pages/skillsToolsPage/skillTools.page';
 import Footer from './components/footer/footer.component';
 import pageActions from './actions/pages.userActions';
 import {connect}  from 'react-redux';

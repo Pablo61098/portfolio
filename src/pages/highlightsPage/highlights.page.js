@@ -1,28 +1,16 @@
-import React, {useRef, useEffect} from 'react'
-import styled from 'styled-components'
-import {Section} from '../generalStyles/general.styles'
-import HighlightsCard from '../components/cards/highlightCard.component'
-import {content} from '../content/highlightCardsContent';
-import {TitleSection} from '../generalStyles/general.styles'
+import React, {useRef, useEffect} from 'react';
+import {Section, ThinDivision} from '../../generalStyles/general.styles'
+import HighlightsCard from '../../components/cards/highlightCard/highlightCard.component'
+import {content} from '../../content/highlightCardsContent';
+import {TitleSection} from '../../generalStyles/general.styles'
 import {gsap, Power3} from 'gsap';
-import {sectionTitles} from '../content/texts.content';
+import {sectionTitles} from '../../content/texts.content';
 import {connect} from 'react-redux';
 
+// import Division from './highlightsPage.styles';
 // gsap.registerPlugin(ScrollTrigger);
 
-const Division = styled.div`
-    width: 80%;
-    /* background-color: lightblue; */
-    /* justify-content: center; */
-    /* display: flex; */
-    /* flex-direction: column; */
-    max-width: 1000px;
 
-    .titleSection{
-        margin-bottom: 70px;
-    }
-    
-`;
 
 const Highlights = ({languageState}) => {
     // console.log(content);
@@ -49,7 +37,7 @@ const Highlights = ({languageState}) => {
     return (
         <Section down >
             
-            <Division>
+            <ThinDivision>
                 <TitleSection flex >
                     <span>{sectionTitles[languageState][4]}</span>
                 </TitleSection>
@@ -66,7 +54,8 @@ const Highlights = ({languageState}) => {
                 {
                     content[languageState].map((cont, index) => {
                         return (<div key={`card-${index}`} ref={element => cards.push(element)}>
-                            <HighlightsCard right={ (index+1)%2 ? false : true}  title={cont.title} description={cont.description} image={cont.image} technologies={cont.technologies} link={cont.link} />
+                            <HighlightsCard right={ (index+1)%2 ? false : true}   {...cont}/>
+                            {/* title={cont.title} description={cont.description} image={cont.image} technologies={cont.technologies} link={cont.link} */}
                         </div>)
                     })
                 }
@@ -76,7 +65,7 @@ const Highlights = ({languageState}) => {
                 {/* <HighlightsCard/>
                 <HighlightsCard/>
                 <HighlightsCard/> */}
-            </Division>
+            </ThinDivision>
 
             
         </Section>
