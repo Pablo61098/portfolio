@@ -19,7 +19,7 @@ const AboutInfo = ({languageState}) => {
             }})})
         }
         
-    })
+    }, []);
 
     return(
                 

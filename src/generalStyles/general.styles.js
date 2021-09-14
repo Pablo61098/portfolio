@@ -66,7 +66,7 @@ const TitleSectionRedux = ({left, flex, currentState, children}) => {
             // markers: true,
             toggleActions: "play none none none",
         }});
-    });
+    }, []);
     
     return(
         <TitleSectionEstilo left={left} flex={flex} currentState={currentState}>

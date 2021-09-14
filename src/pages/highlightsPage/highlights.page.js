@@ -27,9 +27,7 @@ const Highlights = ({languageState}) => {
                 toggleActions: "play none none none",
             }},);
         });
-        
-
-    })
+    }, [])
 
     
 

@@ -10,9 +10,7 @@ import {Container} from './skills.styles';
 
 
 const SkillsImg = ({images}) => {
-
     
-
     return (
         <div className="skillsImages both" >
            {images ? images.map((tech, index) =>  {
@@ -58,7 +56,7 @@ const Skills = ({skillSet, toolSet, skills, tools, currentState, languageState})
         
         
         
-    })
+    }, [])
 
     let set = skillSet
     if(!skillSet){

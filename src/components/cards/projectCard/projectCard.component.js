@@ -29,13 +29,7 @@ const ProjectsCard = ({project, delay}) => {
                 animation.fromTo(borderForAnimation, 0.2, {border: '0'}, {padding: 10, border: '5px dashed #c62ff7'});
                 borderForAnimation.animation = animation
                 
-                gsap.from(card.parentNode, {duration: 1.2, delay: delay, opacity: 0.0, scale: 0.4,  ease: Power3.easeInOut, scrollTrigger: {
-                    trigger: card,
-                    // start: "5% 20%",
-                    // end: "5% 50%",
-                    // markers: true,
-                    toggleActions: "play none none none",
-                }},);
+                
             }else if(ImageState === 1){
                 borderForAnimation.animation.play()
             }else if(ImageState === 2){
@@ -44,7 +38,19 @@ const ProjectsCard = ({project, delay}) => {
                 borderForAnimation.animation.reverse()
             }
         // });
-    })
+    });
+
+    useEffect(() => {
+        
+            gsap.from(card.parentNode, {duration: 1.2, delay: delay, opacity: 0.0, scale: 0.4,  ease: Power3.easeInOut, scrollTrigger: {
+                trigger: card,
+                // start: "5% 20%",
+                // end: "5% 50%",
+                // markers: true,
+                toggleActions: "play none none none",
+            }},);
+        
+    }, []);
 
     const animationLogos = () => {
         
