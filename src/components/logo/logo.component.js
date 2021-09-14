@@ -3,7 +3,7 @@ import {gsap, Power3, TimelineMax} from 'gsap';
 
 import {LogoLayout} from './logo.styles';
 
-const Logo = ({}) => {
+const Logo = ({landing}) => {
 
     const doesntApply = [
         [0, 6, 7, 8, 9],
@@ -49,8 +49,12 @@ const Logo = ({}) => {
             let tl = new TimelineMax();
             let tl2 = new TimelineMax();
             // console.log(square);
-            let value2 = Math.random() * 2
-            tl.to(square, 1.9, {x: (index%2 === 0 ? `+=${value2}` : `-=${value2}`), y: (index%2 === 0 ? `+=${value2}` : `-=${value2}`), z: (index%2 === 0 ? `+=${value2}` : `-=${value2}`), repeat: -1, yoyo: true});
+            let value2 = Math.random() * 2;
+            let value3 = Math.random() * 20;
+            // console.log(value3);
+            !landing ? 
+            tl.to(square, 1.9, {x: (index%2 === 0 ? `+=${value2}` : `-=${value2}`), z: (index%2 === 0 ? `+=${value2}` : `-=${value2}`), y: (index%2 === 0 ? `+=${value2}` : `-=${value2}`), repeat: -1, yoyo: true}):
+            tl.to(square, 1.3, {x: (index%2 === 0 ? `+=${value3}` : `-=${value3}`), y: (index%2 === 0 ? `+=${value3}` : `-=${value3}`), repeat: -1, yoyo: true});
             // tl.to(square, 0.7, {x: (index%2 == 0 ? `-=${value2}` : `+=${value2}`), y: (index%2 == 0 ? `-=${value2}` : `+=${value2}`), z: (index%2 == 0 ? `+=${value2}` : `-=${value2}`), repeat: -1, yoyo: true  });
             // tl.to(square, 0.9, {y: (index%2 == 0 ? `+=${value2}` : `-=${value2}`), yoyo:true, repeat:-1, });
             // tl.to(square, 0.9, {y: (index%2 == 0 ? `-=${value2}` : `+=${value2}`), yoyo:true, repeat:-1, });

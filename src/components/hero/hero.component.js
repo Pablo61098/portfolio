@@ -43,7 +43,7 @@ const Hero = ({currentState, languageState, hasChanged}) => {
                     StartTextAnimation(0, iAm, language);
                 }, 2000);
             }else{
-                console.log(language);
+                // console.log(language);
                 if (i < dataText[language][i].length) {
 
                     typeWriter(dataText[language][i], 0, function(){

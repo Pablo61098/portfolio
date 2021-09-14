@@ -12,31 +12,24 @@ import SkillsTolls from './pages/skillsToolsPage/skillTools.page';
 import Footer from './components/footer/footer.component';
 import pageActions from './actions/pages.userActions';
 import {connect}  from 'react-redux';
+import LandingAnimation from './components/LandingAnimation/landingAnimation.component';
+
+
 
 
 function App({alreadyLoaded}) {
 
   const [blurState, setBlurState] = useState(false);
-
-  // console.log(ReactGAInstance)
-
-  useEffect(() => {
-    if(!alreadyLoaded){
-      pageActions.pageLoaded()
-      // console.log("hola")
-    }
-    // console.log("hola2")
-  })
-
-  return (
-    <Router>
+  const [loadAnimation, setLoadAnimation] = useState(true);
+  // const landingAnimation = LandingAnimation;
+  const WholeApp =
+   <div>
       <Header blurState={blurState}/>
       {/* <Switch>
         <Route path='/' exact component={Home}/>
         <Route path='/about' exact component={About}/>
         <Route path='/services' exact component={Services}/>
       </Switch> */}
-
       <div id="home">
         <Home />
       </div>
@@ -54,7 +47,33 @@ function App({alreadyLoaded}) {
       </div>
       <Footer/>
       <SocialMediaBar/>
-      
+    </div>;
+
+  
+
+  
+  // console.log(ReactGAInstance)
+
+  useEffect(() => {
+    if(!alreadyLoaded){
+      pageActions.pageLoaded()
+      console.log("hola")
+    }
+
+    if(loadAnimation){
+      setTimeout(function(){ setLoadAnimation(false); }, 3000);
+      // WhatsShowing = <div>Hola</div>;
+    }
+   
+    // console.log("hola2")
+  })
+
+  return (
+    
+    <Router>
+      <div>
+        {loadAnimation ? <LandingAnimation/> : WholeApp}
+      </div>
     </Router>
   );
 }
